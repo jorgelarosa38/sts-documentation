@@ -420,15 +420,15 @@ If everything is correct we proceed to create it.
 
 ### We update our routing with the necessary routes.
 
-![Core and Shared](first_steps/54.png)
+![id](first_steps/54.png)
 
 ### Delete the object "app.component.html" as it would not be necessary for the domain.
 
-![Core and Shared](first_steps/55.png)
+![id](first_steps/55.png)
 
 ### Delete the object "app.component.css as it would not be necessary for the domain.
 
-![Core and Shared](first_steps/56.png)
+![id](first_steps/56.png)
 
 ### We create the object "app.constants.ts"
 
@@ -436,64 +436,64 @@ If everything is correct we proceed to create it.
 
 ### Updated the object "app.component.ts"
 
-![Core and Shared](first_steps/58.png)
+![id](first_steps/58.png)
 
 ### Updated the "app.module.ts" object.
 
-![Core and Shared](first_steps/59.png)
+![id](first_steps/59.png)
 
 ### We add the domain name as we have it in the "app.module.ts"
 
-![Core and Shared](first_steps/60.png)
+![id](first_steps/60.png)
 
 ### We comment "enableProdMode ()" when it is run for production.
 
-![Core and Shared](first_steps/62.png)
+![id](first_steps/62.png)
 
 ### Run the command, to generate the dist folder with the main.js
 > npm run build:externals 
 
-![Core and Shared](first_steps/63.png)
-![Core and Shared](first_steps/64.png)
+![id](first_steps/63.png)
+![id](first_steps/64.png)
 
 ### Change the "main.js" to the domain name "sts-core-creditapplicationpicker.js"
 
-![Core and Shared](first_steps/65.png)
+![id](first_steps/65.png)
 
 ### To approve the domain, we add it to the web "web-sts-mo" and the "assets" folder.
 
-![Core and Shared](first_steps/66.png)
+![id](first_steps/66.png)
 
 ### We add in the "environment.ts" our domain variable.
 
-![Core and Shared](first_steps/67.png)
+![id](first_steps/67.png)
 
 ### Agregamos en el “environment.prod.ts” nuestra variable del dominio.
 
-![Core and Shared](first_steps/68.png)
+![id](first_steps/68.png)
 
 ### We add our route in “app.component.ts”
 
-![Core and Shared](first_steps/69.png)
+![id](first_steps/69.png)
 
 ### We add our menu.
 
-![Core and Shared](first_steps/70.png)
+![id](first_steps/70.png)
 
 ### Now, we execute the following command to generate the web dist.
 > npm run build:externals
 
-![Core and Shared](first_steps/71.png)
+![id](first_steps/71.png)
 
 ### Now we execute the following command to raise the web and test our domain.
 > npm start
 
-![Core and Shared](first_steps/72.png)
-![Core and Shared](first_steps/73.png)
+![id](first_steps/72.png)
+![id](first_steps/73.png)
 
 ### Click on the "General Tray" menu.
 
-![Core and Shared](first_steps/74.png)
+![id](first_steps/74.png)
 
 
 #### 6.1.1. Create a custom library
@@ -510,6 +510,25 @@ Now, in the domain, in the HTML file  add the tag with the ID.
 ![id](first_steps/77.png)
 
 ### 6.3. Configure Site Application
+
+* Used for a domain to be consumed by the principal.
+1. Verify that the src / index.html file does not contain any "script" tags inside the body.
+
+![id](first_steps/78.png)
+
+2. Check that the angular.json file has nothing inside the scripts array.
+
+![id](first_steps/79.png)
+
+3. In the package.json file, we will have to validate that the build: external script is:
+> "ng build --extra-webpack-config webpack.externals.js --prod --output-hashing none --vendor-chunk false --single-bundle true"
+
+![id](first_steps/80.png)
+
+4. In the console, we execute "npm run build: externals" and verify that it finishes correctly.
+
+![id](first_steps/81.png)
+
 
 ## 7. Dispatch & Listener Events
 
