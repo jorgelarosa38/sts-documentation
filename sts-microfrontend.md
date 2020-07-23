@@ -394,7 +394,8 @@ module.exports =
 
 ### 6.1. Create a Domain
 
-We create the folder "core" and "shared" with their corresponding objects:
+####We create the folder "core" and "shared" with their corresponding objects:
+
 ![Core and Shared](first_steps/49.png)
 
 
