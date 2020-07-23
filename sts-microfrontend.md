@@ -57,7 +57,7 @@ export  const  environment = {
 }
 ```
 For build our application with the custom environment, we have to use the tag *--configuration={environment-name}* in your build script.
-![launch custom environment](firt_steps/75.png)
+![first_steps/104.png](firt_steps/75.png)
 
 
 ## 5. Guideline to develop
