@@ -61,7 +61,56 @@ For build our application with the custom environment, we have to use the tag *-
 
 
 ## 5. Guideline to develop
-##
+
+#### Variables
+* Must use camelCase to define each variable within any component.
+```
+	applicationNumber
+	birthDate
+```
+#### Method	
+* Must use camelCase to name methods and consider a name similar to the process you are currently viewing.
+```
+	createUser(){
+
+	}
+```
+#### Class
+* Must use for the class name Pascal.
+* Must use lower_snake_case to define each variable within any class(How it comes from the service)
+```
+	export class Tracking {
+		product_code : number;
+		subproduct_code: number;
+	    evaluation_code: number;
+	...
+	}
+```
+#### Service
+* Must use camelCase to name the methods of each service, keep in mind the following:
+```
+	Method Get: getTracking
+	Method Post: postTracking
+	Method Put: putTracking
+	Method Delete: deleteTracking
+```
+```
+	getTracking() {
+
+	}
+```
+* Must use comment defining each parameter received by the method.
+```
+	 /**
+	 * Get header of tracking
+	 * @constructor
+	 * @param {number} application - Code of application.
+	 */
+	getTracking(application: number) {
+		return this.http.get<CustomResponse>(`${this._URLApiBase}tracking/t/${application}`);
+	}
+```
+
 ## 6. Main Web & Domains
 In this section, we're going to learn how to develop correctly our Domains and how generate a javascript file to be consumed for our Main Web.
 
