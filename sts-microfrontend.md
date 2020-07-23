@@ -70,6 +70,7 @@ In this section, we're going to learn how to develop correctly our Domains and h
 ### Step One: *Execute the line command and create a new project.*
 > ng new {project-name} 
 > For example: ng new web-sts
+
 ![_](first_steps/2.png)
 
 ### Step Three: *Send "y" to the angular router file and select "SCSS" in the console.*
@@ -321,7 +322,7 @@ copy('node_modules/crypto-js/crypto-js.js.map', 'src/assets', {}, _  => {});
 copy('node_modules/sjcl/sjcl.js.map', 'src/assets', {}, _  => {});
 copy('node_modules/secure-ls/dist/secure-ls.min.js.map', 'src/assets', {}, _  => {});
 ```
-### Step Eight: Create a javascript file `webpack.externals.js`. This file define the shared libraries into domain and main web.
+### Step Nine: Create a javascript file `webpack.externals.js`. This file define the shared libraries into domain and main web.
 ```
 const  webpack = require('webpack');
 
@@ -349,10 +350,10 @@ module.exports =
 }
 ```
 
-### Step Nine: *Create a* `polyfills.prod.ts` *this file is empty. This file is going to replace the* `polyfills.ts` *in the production enviroment. Just a trick for production enviroment.*
+### Step Ten: *Create a* `polyfills.prod.ts` *this file is empty. This file is going to replace the* `polyfills.ts` *in the production enviroment. Just a trick for production enviroment.*
 ![Production Polyfills](first_steps/43.png)
 
-### Step Ten: *Modify the* `tsconfig.json`
+### Step Eleven: *Modify the* `tsconfig.json`
 Importan!
 The "target" script need to be "es5" if we needed to launch our web in older browsers, at once, the polyfills.ts file define the necesary libraries to run correctly there.
 ```
@@ -388,12 +389,15 @@ The "target" script need to be "es5" if we needed to launch our web in older bro
 	}
 }
 ```
-### Step Eleven: *Excute the lines commands*
+### Step Twelve: *Excute the lines commands*
 > npm install
+
 > npx npm-force-resolutions
+
 > npm update @webpack-dev-server@3.1.14)
 
 ### 6.1. Create a Domain
+
 
 ### We create the folder "core" and "shared" with their corresponding objects:
 
