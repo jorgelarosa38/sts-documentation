@@ -395,9 +395,70 @@ The "target" script need to be "es5" if we needed to launch our web in older bro
 
 ### 6.1. Create a Domain
 
-#### We create the folder "core" and "shared" with their corresponding objects:
+### We create the folder "core" and "shared" with their corresponding objects:
 
 ![Core and Shared](first_steps/49.png)
+
+### Now we enter the following command where we will create our component.
+> ng g c views/CreditApplicationPicker --dry-run
+
+![Core and Shared](first_steps/50.png)
+
+> ng g c views/CreditApplicationPicker
+
+![Core and Shared](first_steps/51.png)
+
+### Now we enter the following command where we will create the empty component.
+> ng g c views/empty --inline-template --inline-style --dry-run 
+
+![Core and Shared](first_steps/52.png)
+
+If everything is correct we proceed to create it.
+> ng g c views/empty --inline-template --inline-style
+
+![Core and Shared](first_steps/53.png)
+
+### We update our routing with the necessary routes.
+
+![Core and Shared](first_steps/54.png)
+
+### Delete the object "app.component.html" as it would not be necessary for the domain.
+
+![Core and Shared](first_steps/55.png)
+
+### Delete the object "app.component.css as it would not be necessary for the domain.
+
+![Core and Shared](first_steps/56.png)
+
+### We create the object "app.constants.ts"
+
+![Core and Shared](first_steps/57.png)
+
+### Updated the object "app.component.ts"
+
+![Core and Shared](first_steps/58.png)
+
+### Updated the "app.module.ts" object.
+
+![Core and Shared](first_steps/59.png)
+
+### We add the domain name as we have it in the "app.module.ts"
+
+![Core and Shared](first_steps/60.png)
+
+### We comment "enableProdMode ()" when it is run for production.
+
+![Core and Shared](first_steps/62.png)
+
+### Run the command, to generate the dist folder with the main.js
+> npm run build:externals 
+
+![Core and Shared](first_steps/63.png)
+![Core and Shared](first_steps/64.png)
+
+### Change the "main.js" to the domain name "sts-core-creditapplicationpicker.js"
+
+![Core and Shared](first_steps/65.png)
 
 
 #### 6.1.1. Create a custom library
