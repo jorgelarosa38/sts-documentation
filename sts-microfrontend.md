@@ -394,11 +394,6 @@ The "target" script need to be "es5" if we needed to launch our web in older bro
 > npm update @webpack-dev-server@3.1.14)
 
 ### 6.1. Create a Domain
-
-We create the folder "core" and "shared" with their corresponding objects:
-![Core and Shared](first_steps/49.png)
-
-
 #### 6.1.1. Create a custom library
 #### 6.1.2. Create a shared library
 ### 6.2. Create a Domain with SubDomain
