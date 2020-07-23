@@ -1,4 +1,5 @@
 
+
 # ![STS Micro FrontEnd](/images/angular.png) STS Micro FrontEnd
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
@@ -6,118 +7,183 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 The porpouse of this topic is show you how to build your own MicroFrontend Web. This project is integrated for a main angular project and the compression to the component, so-called Domains.
-
+##
 ## Index
 
 Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
-
+##
 ## 1. First steps to start in Angular
 
-### Step Zero: *Install the necesary softwares.*
-Install NodeJS: ![ https://nodejs.org/es/download/ ](/images/nodejs.png)
-
-##
-
-Install Visual Studio Code: ![ https://code.visualstudio.com/download ](/images/vsc.png)
-
-### Step One: *Before we create a project, we need to install the Angular in our computer. For that, we are going to execute the line command*
+### *Install the necesary softwares.*
+#### Install NodeJS: https://nodejs.org/es/download/ ![ https://nodejs.org/es/download/ ](/images/nodejs.png)
+#### Install Visual Studio Code: https://code.visualstudio.com/download ![ https://code.visualstudio.com/download ](/images/vsc.png)
+#### Exceute the next command line to install ANGULAR:
 > nmp install -g @angular/cli@8.3.2
+*This command open the possibility to use the "ng" command to generate our Angular project.*
 
-This command open the possibility to use the "ng" command to generate our Angular project.
+## 
 
-### Step Two: *Execute the line command.*
+## 2. Custom Libraries
+
+## 3. Project Structure
+
+## 4. Create a custom enviroment and how to use it
+
+## 5. Guideline to develop
+##
+## 6. Main Web & Domains
+In this section, we're going to learn how to develop correctly our Domains and how generate a javascript file to be consumed for our Main Web.
+
+### Step Zero: *Define the directory where we are going to develop*
+![1](first_steps/1.png) 
+
+### Step One: *Execute the line command and create a new project.*
 > ng new {project-name} 
 > For example: ng new web-sts
-
-![_](first_steps/new-project.png)
+![_](first_steps/2.png)
 
 ### Step Three: *Send "y" to the angular router file and select "SCSS" in the console.*
- ![_](first_steps/config-project.png)
+ ![_](first_steps/3.png)
+  ![_](first_steps/4.png)
 This selected options load the basic configurations.
+  ![_](first_steps/5.png)
 
 ### Step Four: *Open the project's directory in Visual Studio Code and start adding the configurations for our project.*
+  ![_](first_steps/6.png)
 
-### Step Five: *Modify the `package.json`  file.*
-> `MODIFY:`	
-> -  "start": "live-server dist/{project-name}
-> - "build": "ng build --configuration=local --output-hashing none --vendor-chunk false"
-> 
-> `INSERT:` 	
-> - "resolutions": { "yargs-parser": "^13.1.2" }
-> - "dependencies" : 
-> - "devDependencies" :
-``` 
-"dependencies": {
-	"@angular/animations": "~8.2.4",
-	"@angular/cdk": "^8.0.0",
-	"@angular/common": "~8.2.4",
-	"@angular/compiler": "~8.2.4",
-	"@angular/core": "~8.2.4",
-	"@angular/elements": "^8.2.14",
-	"@angular/forms": "~8.2.4",
-	"@angular/platform-browser": "~8.2.4",
-	"@angular/platform-browser-dynamic": "~8.2.4",
-	"@angular/router": "~8.2.4",
-	"@auth0/angular-jwt": "^3.0.1",
-	"@coreui/angular": "^2.7.3",
-	"@coreui/coreui": "^2.1.16",
-	"@ng-bootstrap/ng-bootstrap": "^5.1.5",
-	"@swimlane/ngx-datatable": "16.1.1",
-	"@syncfusion/ej2-angular-richtexteditor": "^17.4.44",
-	"@webcomponents/custom-elements": "^1.4.1",
-	"@webcomponents/webcomponentsjs": "^2.2.10",
-	"angular-font-awesome": "^3.1.2",
-	"bootstrap": "^4.4.1",
-	"classlist.js": "^1.1.20150312",
-	"core-js": "^2.6.9",
-	"crypto-browserify": "^3.12.0",
-	"crypto-js": "^4.0.0",
-	"custom-event": "^1.0.1",
-	"custom-event-polyfill": "^1.0.7",
-	"date-fns": "^2.9.0",
-	"document-register-element": "^1.7.2",
-	"font-awesome": "^4.7.0",
-	"jsencrypt": "^3.0.0-rc.1",
-	"live-server": "^1.2.1",
-	"mutationobserver-shim": "^0.3.3",
-	"ng6-toastr-notifications": "^1.0.4",
-	"ngx-bootstrap": "^5.1.0",
-	"ngx-perfect-scrollbar": "^8.0.0",
-	"ngx-spinner": "^8.1.0",
-	"pako": "^1.0.11",
-	"rxjs": "~6.4.0",
-	"secure-ls": "^1.2.6",
-	"sjcl": "^1.0.8",
-	"stslibcoverweb": [CUSTOM_LIBRARY],
-	"stslibutils": [CUSTOM_LIBRARY],
-	"tslib": "^1.10.0",
-	"web-animations-js": "^2.3.2",
-	"zone.js": "~0.9.1"						
-},
-"devDependencies": {
-	"@angular-devkit/build-angular": "~0.803.2",
-	"@angular/cli": "~8.3.2",
-	"@angular/compiler-cli": "~8.2.4",
-	"@angular/language-service": "~8.2.4",
-	"@types/jasmine": "~3.3.8",
-	"@types/jasminewd2": "~2.0.3",
-	"@types/node": "~8.9.4",
-	"codelyzer": "^5.0.0",
-	"jasmine-core": "~3.4.0",
-	"jasmine-spec-reporter": "~4.2.1",
-	"karma": "^5.0.4",
-	"karma-chrome-launcher": "~2.2.0",
-	"karma-coverage-istanbul-reporter": "~2.0.1",
-	"karma-jasmine": "~2.0.1",
-	"karma-jasmine-html-reporter": "^1.4.0",
-	"ngx-build-plus": "^9.0.6",
-	"protractor": "^7.0.0",
-	"ts-node": "~7.0.0",
-	"tslint": "~5.15.0",
-	"typescript": "~3.5.3"		
+### Step Five: *Modify the* `angular.json` *.*
+  We need to define the way that the project is gonna be built. For that, follow the next steps.
+```
+MODIFY:
+{
+	"project":{
+		"{name-project}":{
+			"architec":{ 
+				"build"{
+					"builder": "ngx-build-plus:browser",
+					"option":{
+						"styles":[
+							"node_modules/font-awesome/css/font-awesome.css",
+							"src/scss/style.scss"
+							]
+					...},
+					"configuration":{
+						"production":{
+							"fileReplacements": [
+								{
+									"replace": "src/polyfills.ts",
+									"with": "src/polyfills.prod.ts"
+								}
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.prod.ts"
+								},
+							...]
+						...}
+					...}
+				...},
+				"serve":{
+					"builder": "ngx-build-plus:dev-server",
+				...}
+			...}
+		...} 
+	...}
 }
 ```
-### Step Six: *Modify the `polyfill.ts` file*
+  ![_](first_steps/7.png)
+
+
+### Step Six: *Modify the `package.json`  file.*
+```
+{
+	"name": "{project-name}",
+	"version": "0.0.0",
+	"scripts": {
+		...,
+		"start": "live-server dist/{project-name}",
+		"build": "ng build --prod --output-hashing none --vendor-chunk false",
+		...
+	},
+	"resolutions": {
+		"yargs-parser": "^13.1.2"
+	},
+	"private": true,
+	"dependencies": {
+		"@angular/animations": "~8.2.4",
+		"@angular/cdk": "^8.0.0",
+		"@angular/common": "~8.2.4",
+		"@angular/compiler": "~8.2.4",
+		"@angular/core": "~8.2.4",
+		"@angular/elements": "^8.2.14",
+		"@angular/forms": "~8.2.4",
+		"@angular/platform-browser": "~8.2.4",
+		"@angular/platform-browser-dynamic": "~8.2.4",
+		"@angular/router": "~8.2.4",
+		"@auth0/angular-jwt": "^3.0.1",
+		"@coreui/angular": "^2.7.3",
+		"@coreui/coreui": "^2.1.16",
+		"@ng-bootstrap/ng-bootstrap": "^5.1.5",
+		"@swimlane/ngx-datatable": "16.1.1",
+		"@syncfusion/ej2-angular-richtexteditor": "^17.4.44",
+		"@webcomponents/custom-elements": "^1.4.2",
+		"@webcomponents/webcomponentsjs": "^2.2.10",
+		"angular-font-awesome": "^3.1.2",
+		"bootstrap": "^4.4.1",
+		"classlist.js": "^1.1.20150312",
+		"compodoc": "0.0.41",
+		"copy": "^0.3.2",
+		"core-js": "^2.6.9",
+		"crypto-browserify": "^3.12.0",
+		"crypto-js": "^4.0.0",
+		"custom-event": "^1.0.1",
+		"custom-event-polyfill": "^1.0.7",
+		"date-fns": "^2.9.0",
+		"document-register-element": "^1.14.3",
+		"font-awesome": "^4.7.0",
+		"jsencrypt": "^3.0.0-rc.1",
+		"live-server": "^1.2.1",
+		"mutationobserver-shim": "^0.3.3",
+		"ng6-toastr-notifications": "^1.0.4",
+		"ngx-bootstrap": "^5.6.1",
+		"ngx-perfect-scrollbar": "^8.0.0",
+		"ngx-spinner": "^8.1.0",
+		"pako": "^1.0.11",
+		"rxjs": "~6.4.0",
+		"secure-ls": "^1.2.6",
+		"sjcl": "^1.0.8",
+		"stslibcoverweb": "file:../../sts-libs/dist/stslibcoverweb",
+		"stslibutils": "file:../../sts-libs/dist/stslibutils",
+		"tslib": "^1.10.0",
+		"web-animations-js": "^2.3.2",
+		"webpack-dev-server": "^3.1.14",
+		"zone.js": "~0.9.1"
+	},
+	"devDependencies": {
+		"@angular-devkit/build-angular": "~0.803.2",
+		"@angular/cli": "~8.3.2",
+		"@angular/compiler-cli": "~8.2.4",
+		"@angular/language-service": "~8.2.4",
+		"@types/jasmine": "~3.3.8",
+		"@types/jasminewd2": "~2.0.3",
+		"@types/node": "~8.9.4",
+		"codelyzer": "^5.0.0",
+		"jasmine-core": "~3.4.0",
+		"jasmine-spec-reporter": "~4.2.1",
+		"karma": "^5.0.4",
+		"karma-chrome-launcher": "~2.2.0",
+		"karma-coverage-istanbul-reporter": "~2.0.1",
+		"karma-jasmine": "~2.0.1",
+		"karma-jasmine-html-reporter": "^1.4.0",
+		"ngx-build-plus": "^9.0.6",
+		"protractor": "^7.0.0",
+		"ts-node": "~7.0.0",
+		"tslint": "~5.15.0",
+		"typescript": "~3.5.3"
+	}
+}
+```
+
+### Step Seven: *Modify the `polyfill.ts` file*
 ```
 /**
 * This file includes polyfills needed by Angular and is loaded before the app.
@@ -195,45 +261,107 @@ import  '@webcomponents/custom-elements/custom-elements.min';
 //CustomEvent
 import  'custom-event-polyfill';
 ```
+### Step Eight: Create a javascript file `copy-libs.js`. This file copy de necessary libs to the assets, there the project use it to be launch.
 
-### Step Seven: *Create a* `polyfills.prod.ts` *this file is empty. This file is going to replace the* `polyfills.ts` *in the production enviroment. Just a trick to production enviroment.*
-![Production Polyfills](first_steps/prod_polyfill.png)
-
-### Step Eight: *Then, we are going to configurate the build. In the*  `angular.json` *file.*
-> `Modify: `
->  
->  "projects"/"architec"/"build"
->  - "builder": "ngx-build-plus:browser",
->  
->  "projects"/"architec"/"serve"
->  -  "builder": "ngx-build-plus:dev-server"
-
-### Step Nine: *Modify the* `tsconfig.json`
 ```
-"compilerOptions": { 	
-	...
-	"paths": {"crypto": ["node_modules/crypto-js"]}
-	...
-	"target": "es5"
-	...
+const  copy = require('copy');
+console.log('Copy libraries to project');
+copy('node_modules/@webcomponents/custom-elements/src/native-shim.js', 'src/assets', {}, _  => {});
+copy('node_modules/rxjs/bundles/rxjs.umd.js', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/core/bundles/core.umd.js', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/common/bundles/common.umd.js', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/common/bundles/common-http.umd.js', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/compiler/bundles/compiler.umd.js', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/elements/bundles/elements.umd.js', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/platform-browser/bundles/platform-browser.umd.js', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js', 'src/assets', {}, _  => {});
+copy('node_modules/crypto-js/crypto-js.js', 'src/assets', {}, _  => {});
+copy('node_modules/sjcl/sjcl.js', 'src/assets', {}, _  => {});
+copy('node_modules/secure-ls/dist/secure-ls.min.js', 'src/assets', {}, _  => {});
+copy('node_modules/@webcomponents/custom-elements/src/native-shim.js.map', 'src/assets', {}, _  => {});
+copy('node_modules/rxjs/bundles/rxjs.umd.js.map', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/core/bundles/core.umd.js.map', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/common/bundles/common.umd.js.map', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/common/bundles/common-http.umd.js.map', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/compiler/bundles/compiler.umd.js.map', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/elements/bundles/elements.umd.js.map', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/platform-browser/bundles/platform-browser.umd.js.map', 'src/assets', {}, _  => {});
+copy('node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js.map', 'src/assets', {}, _  => {});
+copy('node_modules/crypto-js/crypto-js.js.map', 'src/assets', {}, _  => {});
+copy('node_modules/sjcl/sjcl.js.map', 'src/assets', {}, _  => {});
+copy('node_modules/secure-ls/dist/secure-ls.min.js.map', 'src/assets', {}, _  => {});
+```
+### Step Eight: Create a javascript file `webpack.externals.js`. This file define the shared libraries into domain and main web.
+```
+const  webpack = require('webpack');
+
+module.exports =
+{
+	"externals": {
+		"rxjs":  "rxjs",
+		"@angular/core":  "ng.core",
+		"@angular/common":  "ng.common",
+		"@angular/common/http":  "ng.common.http",
+		"@angular/platform-browser":  "ng.platformBrowser",
+		"@angular/platform-browser-dynamic":  "ng.platformBrowserDynamic",
+		"@angular/compiler":  "ng.compiler",
+		"@angular/elements":  "ng.elements",
+		"crypto-js":'CryptoJS',
+		"sjcl":'sjcl',
+		"secure-ls":  "SecureLS",
+		"stslibcoverweb":"stslibcoverweb",
+		"stslibutils":"stslibutils",
+		"zone.js":  'Zone'
+		// Uncomment and add to scripts in angular.json if needed
+		// "@angular/router": "ng.router",
+		// "@angular/forms": "ng.forms"
+	}
 }
 ```
-### Last Step: *Excute the lines commands*
+
+### Step Nine: *Create a* `polyfills.prod.ts` *this file is empty. This file is going to replace the* `polyfills.ts` *in the production enviroment. Just a trick for production enviroment.*
+![Production Polyfills](first_steps/43.png)
+
+### Step Ten: *Modify the* `tsconfig.json`
+```
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"crypto": [
+			"node_modules/crypto-js"
+			]
+		},
+		"outDir": "./dist/out-tsc",
+		"sourceMap": true,
+		"declaration": false,
+		"downlevelIteration": true,
+		"experimentalDecorators": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"importHelpers": true,
+		"target": "es5",
+		"typeRoots": [
+			"node_modules/@types"
+		],
+		"lib": [
+			"es2018",
+			"dom"
+		]
+	},
+	"angularCompilerOptions": {
+		"fullTemplateTypeCheck": true,
+		"strictInjectionParameters": true
+	}
+}
+```
+
+### Step Eleven: *Excute the lines commands*
 > npm install
 > npx npm-force-resolutions
 > npm update @webpack-dev-server@3.1.14)
 
-## 
-
-## 2. Custom Libraries
-
-## 3. Project Structure
-
-## 4. Create a custom enviroment and how to use it
-
-## 5. Guideline to develop
-
-## 6. Main Web & Domains
 ### 6.1. Create a Domain
 #### 6.1.1. Create a custom library
 #### 6.1.2. Create a shared library
