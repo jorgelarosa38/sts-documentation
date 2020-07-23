@@ -1,6 +1,6 @@
 
 # STS Micro FrontEnd
-## ![Angular Example App](angular.png)
+## ![Angular Example App](/images/angular.png)
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
@@ -14,8 +14,8 @@ Dillinger is currently extended with the following plugins. Instructions on how 
 ## 1. First steps to start in Angular
 
 ### Step Zero: *Install the necesary softwares.*
-Install NodeJS: ![ https://nodejs.org/es/download/ ](nodejs.png)
-Install Visual Studio Code: ![ https://code.visualstudio.com/download ](vsc.png)
+Install NodeJS: ![ https://nodejs.org/es/download/ ](/images/nodejs.png)
+Install Visual Studio Code: ![ https://code.visualstudio.com/download ](/images/vsc.png)
 
 ### Step One: *Before we create a project, we need to install the Angular in our computer. For that, we are going to execute the line command*
 > nmp install -g @angular/cli@8.3.2
@@ -26,10 +26,10 @@ This command open the possibility to use the "ng" command to generate our Angula
 > ng new {project-name} 
 > For example: ng new web-sts
 
-![_](first_step/new-project.png)
+![_](first_steps/new-project.png)
 
 ### Step Three: *Send "y" to the angular router file and select "SCSS" in the console.*
- ![_](first_step/config-project.png)
+ ![_](first_steps/config-project.png)
 This selected options load the basic configurations.
 
 ### Step Four: *Open the project's directory in Visual Studio Code and start adding the configurations for our project.*
