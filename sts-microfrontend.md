@@ -29,6 +29,35 @@ Dillinger is currently extended with the following plugins. Instructions on how 
 
 ## 4. Create a custom enviroment and how to use it
 
+### Create a new enviroment file.
+For example: enviroment.local.ts
+```
+export  const  environment = {
+	(DEFINITIONS...)
+};
+```
+### Configure your enviroment in `angular.json`
+```
+{...
+	"project":{
+		{project-name}:{...
+			"architect":{
+				"build":{...
+					"configurations":{
+						{enviroment}:{
+							(CONFIGURATIONS...)
+						}
+					}
+				}
+			}
+		}
+	}
+}
+```
+For build our application with the custom environment, we have to use the tag *--configuration={environment-name}* in your build script.
+![launch custom environment](firt_steps/75.png)
+
+
 ## 5. Guideline to develop
 ##
 ## 6. Main Web & Domains
@@ -40,7 +69,6 @@ In this section, we're going to learn how to develop correctly our Domains and h
 ### Step One: *Execute the line command and create a new project.*
 > ng new {project-name} 
 > For example: ng new web-sts
-
 ![_](first_steps/2.png)
 
 ### Step Three: *Send "y" to the angular router file and select "SCSS" in the console.*
@@ -410,3 +438,6 @@ MIT
    [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
    [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
    [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
+
+
+[![An old rock in the desert](/assets/images/shiprock.jpg "Shiprock, New Mexico by Beau Rogers")](https://www.flickr.com/photos/beaurogers/31833779864/in/photolist-Qv3rFw-34mt9F-a9Cmfy-5Ha3Zi-9msKdv-o3hgjr-hWpUte-4WMsJ1-KUQ8N-deshUb-vssBD-6CQci6-8AFCiD-zsJWT-nNfsgB-dPDwZJ-bn9JGn-5HtSXY-6CUhAL-a4UTXB-ugPum-KUPSo-fBLNm-6CUmpy-4WMsc9-8a7D3T-83KJev-6CQ2bK-nNusHJ-a78rQH-nw3NvT-7aq2qf-8wwBso-3nNceh-ugSKP-4mh4kh-bbeeqH-a7biME-q3PtTf-brFpgb-cg38zw-bXMZc-nJPELD-f58Lmo-bXMYG-bz8AAi-bxNtNT-bXMYi-bXMY6-bXMYv)
