@@ -353,6 +353,8 @@ module.exports =
 ![Production Polyfills](first_steps/43.png)
 
 ### Step Ten: *Modify the* `tsconfig.json`
+Importan!
+The "target" script need to be "es5" if we needed to launch our web in older browsers, at once, the polyfills.ts file define the necesary libraries to run correctly there.
 ```
 {
 	"compileOnSave": false,
@@ -386,7 +388,6 @@ module.exports =
 	}
 }
 ```
-
 ### Step Eleven: *Excute the lines commands*
 > npm install
 > npx npm-force-resolutions
@@ -396,6 +397,16 @@ module.exports =
 #### 6.1.1. Create a custom library
 #### 6.1.2. Create a shared library
 ### 6.2. Create a Domain with SubDomain
+What is a `subdomain`?
+Well, in a microfrontend we have a main web and diferents domains, but sometimes, this domains consume other domain. So, what have we to do for that?
+
+All the domains have a CustomElement created in `app.module.ts` file. Inside is defined an ID.
+![id](first_steps/76.png)
+This code open our domain to be consumed for others domains. 
+
+Now, in the domain, in the HTML file  add the tag with the ID.
+![id](first_steps/77.png)
+
 ### 6.3. Configure Site Application
 
 ## 7. Dispatch & Listener Events
