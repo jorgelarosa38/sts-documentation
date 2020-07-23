@@ -1,5 +1,6 @@
 ﻿
 
+
 # [![Angular](/images/angular.png)](https://angular.io/) STS Micro FrontEnd
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
@@ -499,9 +500,33 @@ If everything is correct we proceed to create it.
 
 ![Core and Shared](first_steps/74.png)
 
-
 #### 6.1.1. Create a custom library
+
+For this project, we use two custom libraries. One for crypt and compress data through a interceptor's logic, and other for utility helpers necessaries to the correctly performances.
+
+To create a new library project, execute.
+> ng new {workspace-name} --create-application=false
+
+> cd {workspace-name}
+
+> ng generate library {library-name}
+
+Inside the project, we are going to see this structure.
+![LIBS](first_steps/78.png)
+In the example image, we have the two libraries mentionated in the beginning.
+
+There, the project have a src/lib directory where we are going to create our services with the logic necessary.
+![SERVICES](first_steps/79.png)
+![EXAMPLE](first_steps/80.png)
+
+At the same time, in the project, in the `public-api.ts` we have to define the services to expose in our library.
+![PUBLIC-API](first_steps/81.png)
+
+To configure the build and the dependencies, `angular.json` and `package.json` files work equal just like a application project.
+
 #### 6.1.2. Create a shared library
+
+
 ### 6.2. Create a Domain with SubDomain
 What is a `subdomain`?
 Well, in a microfrontend we have a main web and diferents domains, but sometimes, this domains consume other domain. So, what have we to do for that?
