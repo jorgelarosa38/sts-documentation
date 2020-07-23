@@ -15,6 +15,9 @@ Dillinger is currently extended with the following plugins. Instructions on how 
 
 ### Step Zero: *Install the necesary softwares.*
 Install NodeJS: ![ https://nodejs.org/es/download/ ](/images/nodejs.png)
+
+##
+
 Install Visual Studio Code: ![ https://code.visualstudio.com/download ](/images/vsc.png)
 
 ### Step One: *Before we create a project, we need to install the Angular in our computer. For that, we are going to execute the line command*
