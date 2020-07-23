@@ -533,6 +533,8 @@ Now, in the domain, in the HTML file  add the tag with the ID.
 
 ![id](first_steps/81.png)
 
+5. In the path dist / {PROJECT-NAME} a file main.js will have been generated, which we must rename and with the name of the project. We place this file in the assets of our MAIN.
+main.js -> project-name.js
 
 ## 7. Dispatch & Listener Events
 
