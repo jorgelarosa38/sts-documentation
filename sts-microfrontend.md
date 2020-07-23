@@ -40,6 +40,7 @@ In this section, we're going to learn how to develop correctly our Domains and h
 ### Step One: *Execute the line command and create a new project.*
 > ng new {project-name} 
 > For example: ng new web-sts
+
 ![_](first_steps/2.png)
 
 ### Step Three: *Send "y" to the angular router file and select "SCSS" in the console.*
