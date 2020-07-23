@@ -460,6 +460,41 @@ If everything is correct we proceed to create it.
 
 ![Core and Shared](first_steps/65.png)
 
+### To approve the domain, we add it to the web "web-sts-mo" and the "assets" folder.
+
+![Core and Shared](first_steps/66.png)
+
+### We add in the "environment.ts" our domain variable.
+
+![Core and Shared](first_steps/67.png)
+
+### Agregamos en el “environment.prod.ts” nuestra variable del dominio.
+
+![Core and Shared](first_steps/68.png)
+
+### We add our route in “app.component.ts”
+
+![Core and Shared](first_steps/69.png)
+
+### We add our menu.
+
+![Core and Shared](first_steps/70.png)
+
+### Now, we execute the following command to generate the web dist.
+> npm run build:externals
+
+![Core and Shared](first_steps/71.png)
+
+### Now we execute the following command to raise the web and test our domain.
+> npm start
+
+![Core and Shared](first_steps/72.png)
+![Core and Shared](first_steps/73.png)
+
+### Click on the "General Tray" menu.
+
+![Core and Shared](first_steps/74.png)
+
 
 #### 6.1.1. Create a custom library
 #### 6.1.2. Create a shared library
