@@ -1,6 +1,6 @@
 
-# STS Micro FrontEnd
-## ![Angular Example App](/images/angular.png)
+# ![STS Micro FrontEnd](/images/angular.png) STS Micro FrontEnd
+
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
