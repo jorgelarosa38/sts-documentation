@@ -57,6 +57,7 @@ export  const  environment = {
 }
 ```
 For build our application with the custom environment, we have to use the tag *--configuration={environment-name}* in your build script.
+
 ![launch custom environment](first_steps/75.png)
 
 
@@ -547,6 +548,7 @@ If everything is correct we proceed to create it.
 > npm run build:externals 
 
 ![Core and Shared](first_steps/63.png)
+
 ![Core and Shared](first_steps/64.png)
 
 ### Change the "main.js" to the domain name "sts-core-creditapplicationpicker.js"
@@ -582,6 +584,7 @@ If everything is correct we proceed to create it.
 > npm start
 
 ![Core and Shared](first_steps/72.png)
+
 ![Core and Shared](first_steps/73.png)
 
 ### Click on the "General Tray" menu.
@@ -600,14 +603,19 @@ To create a new library project, execute.
 > ng generate library {library-name}
 
 Inside the project, we are going to see this structure.
+
 ![LIBS](first_steps/78.png)
+
 In the example image, we have the two libraries mentionated in the beginning.
 
 There, the project have a src/lib directory where we are going to create our services with the logic necessary.
+
 ![SERVICES](first_steps/79.png)
+
 ![EXAMPLE](first_steps/80.png)
 
 At the same time, in the project, in the `public-api.ts` we have to define the services to expose in our library.
+
 ![PUBLIC-API](first_steps/81.png)
 
 To configure the build and the dependencies, `angular.json` and `package.json` files work equal just like a application project.
@@ -618,6 +626,7 @@ In a microfrontend design, the proyects have them own dependencies, and works al
 BUT! there are a solution for that, called WEBPACK. Is a file where we put all the libraries we share between domains and the main web.
 
 Here a example in our project: 
+
 ![WebPack](first_steps/105.png)
 
 `webpack.externals.js`
