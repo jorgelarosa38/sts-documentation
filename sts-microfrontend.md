@@ -677,7 +677,9 @@ What is a `subdomain`?
 Well, in a microfrontend we have a main web and diferents domains, but sometimes, this domains consume other domain. So, what have we to do for that?
 
 All the domains have a CustomElement created in `app.module.ts` file. Inside is defined an ID.
+
 ![id](first_steps/76.png)
+
 This code open our domain to be consumed for others domains. 
 
 Now, in the domain, in the HTML file  add the tag with the ID.
