@@ -1,7 +1,7 @@
 ﻿
 
 
-# [![Angular](/images/angular.png)](https://angular.io/) STS Micro FrontEnd
+# [![Angular](images/angular.png)](https://angular.io/) STS Micro FrontEnd
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
@@ -16,8 +16,8 @@ Dillinger is currently extended with the following plugins. Instructions on how 
 ## 1. First steps to start in Angular
 
 ### *Install the necesary softwares.*
-#### Install NodeJS: [![NodeJS](/images/nodejs.png "NodeJS")](https://nodejs.org/es/download/)
-#### Install Visual Studio Code: [![ https://code.visualstudio.com/download ](/images/vsc.png)](https://code.visualstudio.com/download )
+#### Install NodeJS: [![NodeJS](images/nodejs.png "NodeJS")](https://nodejs.org/es/download/)
+#### Install Visual Studio Code: [![ https://code.visualstudio.com/download ](images/vsc.png)](https://code.visualstudio.com/download )
 #### Exceute the next command line to install ANGULAR:
 > nmp install -g @angular/cli@8.3.2
 *This command open the possibility to use the "ng" command to generate our Angular project.*
