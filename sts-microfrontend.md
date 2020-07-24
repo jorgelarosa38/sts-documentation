@@ -61,7 +61,92 @@ For build our application with the custom environment, we have to use the tag *-
 
 
 ## 5. Guideline to develop
-##
+
+#### Variables
+* Must use camelCase to define each variable within any component.
+```
+	applicationNumber
+	birthDate
+```
+#### Method	
+* Must use camelCase to name methods and consider a name similar to the process you are currently viewing.
+```
+	createUser(){
+
+	}
+```
+#### Class
+* Must use for the class name Pascal.
+* Must use lower_snake_case to define each variable within any class(How it comes from the service)
+```
+	export class Tracking {
+		product_code : number;
+		subproduct_code: number;
+	    evaluation_code: number;
+	...
+	}
+```
+#### Service
+* Must use camelCase to name the methods of each service, keep in mind the following:
+```
+	Method Get: getTracking
+	Method Post: postTracking
+	Method Put: putTracking
+	Method Delete: deleteTracking
+```
+```
+	getTracking() {
+
+	}
+```
+* Must use comment defining each parameter received by the method.
+```
+	 /**
+	 * Get header of tracking
+	 * @constructor
+	 * @param {number} application - Code of application.
+	 */
+	getTracking(application: number) {
+		return this.http.get<CustomResponse>(`${this._URLApiBase}tracking/t/${application}`);
+	}
+```
+#### Static
+* You should use static if your variable or method doesn't change value, it stays with the initial value assigned.
+
+example
+```
+class Circle {
+    static pi: number = 3.14;
+    
+    static calculateArea(radius:number) {
+        return this.pi * radius * radius;
+    }
+}
+Circle.pi; // returns 3.14
+Circle.calculateArea(5); // returns 78.5
+```
+
+#### ReadOnly
+* Prefix readonly is used to make a property as read-only.
+```
+class Employee {
+    readonly empCode: number;
+    empName: string;
+    
+    constructor(code: number, name: string)     {
+        this.empCode = code;
+        this.empName = name;
+    }
+}
+```
+let emp = new Employee(10, "John");
+emp.empCode = 20; //Compiler Error
+emp.empName = 'Bill'; //Compiler Error
+
+*In the above example, we have the Employee class with two properties- empName and empCode. Since empCode is read only, it can be initialized at the time of declaration or in the constructor.
+If we try to change the value of empCode after the object has been initialized, the compiler shows the following compilation error:
+error TS2540: Cannot assign to empCode' because it is a constant or a read-only property.
+
 ## 6. Main Web & Domains
 In this section, we're going to learn how to develop correctly our Domains and how generate a javascript file to be consumed for our Main Web.
 
