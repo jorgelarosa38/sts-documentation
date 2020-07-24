@@ -110,6 +110,42 @@ For build our application with the custom environment, we have to use the tag *-
 		return this.http.get<CustomResponse>(`${this._URLApiBase}tracking/t/${application}`);
 	}
 ```
+#### Static
+* You should use static if your variable or method doesn't change value, it stays with the initial value assigned.
+
+example
+```
+class Circle {
+    static pi: number = 3.14;
+    
+    static calculateArea(radius:number) {
+        return this.pi * radius * radius;
+    }
+}
+Circle.pi; // returns 3.14
+Circle.calculateArea(5); // returns 78.5
+```
+
+#### ReadOnly
+* Prefix readonly is used to make a property as read-only.
+```
+class Employee {
+    readonly empCode: number;
+    empName: string;
+    
+    constructor(code: number, name: string)     {
+        this.empCode = code;
+        this.empName = name;
+    }
+}
+```
+let emp = new Employee(10, "John");
+emp.empCode = 20; //Compiler Error
+emp.empName = 'Bill'; //Compiler Error
+
+*In the above example, we have the Employee class with two properties- empName and empCode. Since empCode is read only, it can be initialized at the time of declaration or in the constructor.
+If we try to change the value of empCode after the object has been initialized, the compiler shows the following compilation error:
+error TS2540: Cannot assign to empCode' because it is a constant or a read-only property.
 
 ## 6. Main Web & Domains
 In this section, we're going to learn how to develop correctly our Domains and how generate a javascript file to be consumed for our Main Web.
