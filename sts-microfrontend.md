@@ -161,9 +161,12 @@ In this section, we're going to learn how to develop correctly our Domains and h
 
 ### Step Three: *Send "y" to the angular router file and select "SCSS" in the console.*
  ![_](first_steps/3.png)
-  ![_](first_steps/4.png)
+ 
+ ![_](first_steps/4.png)
+ 
 This selected options load the basic configurations.
-  ![_](first_steps/5.png)
+ 
+ ![_](first_steps/5.png)
 
 ### Step Four: *Open the project's directory in Visual Studio Code and start adding the configurations for our project.*
   ![_](first_steps/6.png)
