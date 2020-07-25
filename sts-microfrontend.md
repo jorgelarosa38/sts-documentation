@@ -156,7 +156,10 @@ In this section, we're going to learn how to develop correctly our Domains and h
 
 ### Step One: *Execute the line command and create a new project.*
 > ng new {project-name} 
-> For example: ng new web-sts
+
+app.module.ts
+
+> For example: ng new web-stsenableProdMode 
 
 ![_](first_steps/2.png)
 
@@ -536,11 +539,11 @@ If everything is correct we proceed to create it.
 
 ![Core and Shared](first_steps/59.png)
 
-### We add the domain name as we have it in the "app.module.ts"
+### We add the domain name as we have it in the "index.html"
 
 ![Core and Shared](first_steps/60.png)
 
-### We comment "enableProdMode ()" when it is run for production.
+### We comment "enableProdMode()" in main.ts when it is run for production.
 
 ![Core and Shared](first_steps/62.png)
 
@@ -680,9 +683,13 @@ All the domains have a CustomElement created in `app.module.ts` file. Inside is 
 
 ![id](first_steps/76.png)
 
+
 This code open our domain to be consumed for others domains. 
 
+
 Now, in the domain, in the HTML file  add the tag with the ID.
+
+
 ![id](first_steps/77.png)
 
 ### 6.3. Configure Site Application
