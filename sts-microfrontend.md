@@ -1,6 +1,7 @@
 ﻿
 
 
+
 # [![Angular](images/angular.png)](https://angular.io/) STS Micro FrontEnd
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
@@ -22,10 +23,75 @@ Dillinger is currently extended with the following plugins. Instructions on how 
 > nmp install -g @angular/cli@8.3.2
 *This command open the possibility to use the "ng" command to generate our Angular project.*
 
-
 ## 
 
 ## 2. Custom Libraries
+
+Our microfrontend project use two (2) libraries. "stslibcoverweb" & "stslibutils".
+
+![libs](first_steps/106.png)
+
+Every time we update one of them, we have to rebuild the project, transpile and generate new `.umd` files . 
+
+![libs](first_steps/107.png)
+
+![libs](first_steps/108.png)
+
+Next, is necessary reinstall the libraries in the main web.
+> npm i {lib-directory}/dist/{lib-name}
+
+For example:
+> npm i C:\Fuentes\01Desarrollo\MICROFRONTEND-STS\sts-libs\dist\stslibcoverweb
+
+
+### 2.1. STSLIBCOVERWEB
+If you need to save a variable in the localstorage, the StorageService is the indicated.
+
+Use it in the component's constructor.
+
+![libs](first_steps/109.png)
+
+And now, the methods.
+
+### a. set : save a value.
+
+![libs](first_steps/110.png)
+
+### b. get: obtain a value.
+
+![libs](first_steps/111.png)
+
+### c.setJson: save a JSON object.
+
+![libs](first_steps/112.png) 
+
+### d.getJson: obtain a JSON object.
+
+![libs](first_steps/113.png) 
+
+Are you looking how to compress a string or an object? Stop looking and use the GZipServices. 
+
+Use it in the component's constructor.
+
+![libs](first_steps/114.png)
+
+And now, the methods.
+
+### a. gunzipJson : uncompress a JSON object.
+
+![libs](first_steps/115.png)
+
+### b. gzipJson: compress a JSON object.
+
+![libs](first_steps/116.png)
+
+### c.gzipText: uncompress a string.
+
+![libs](first_steps/117.png) 
+
+### d.gunzipText: compress a string.
+
+![libs](first_steps/118.png) 
 
 ## 3. Project Structure
 
@@ -703,6 +769,17 @@ Now, in the domain, in the HTML file  add the tag with the ID.
 
 ## 10. Storage Provider
 ### 10.1. How to set in localstorage
+
+## 11. Documentation
+
+To generate a correctly documentation, we use the tool @COMPODOC. 
+
+In the project execute the next line commands.
+> npm install -g @compodoc/compodo
+
+>compodoc -p ./tsconfig.json -s
+
+A new folder "Documentation" would be generated and inside all your Angular project are defined.
 
 License
 ----
