@@ -94,6 +94,110 @@ And now, the methods.
 ![libs](first_steps/118.png) 
 
 ## 3. Project Structure
+```
+{domain-name}
+	|
+	\--	dist
+	|
+	\--	node_modules (libraries)
+	|
+	\--	src
+		|
+		\--	app
+			|
+			\--	core
+				|
+				\--	interceptor
+					|
+					*--	backforfrontend.interceptor.ts
+					*--	fakebackend.interceptor.ts
+					|
+					*-- authorization.ts
+					*-- custom-response.ts
+					*-- menu.ts
+					*-- user.ts
+					|
+				|
+				\--	models
+					|
+				|
+				\--	services
+					|
+					\-- auth
+						|
+						*-- authentication.service.ts
+						*-- menu.service.ts
+						|
+			|
+			\--	shared
+				|
+				\-- helpers
+					|
+					*--	auth.guard.ts
+					*--	config.ts
+					*--	dependence.module.ts
+					*--	ngbDateCustomParserFormatter.ts
+					*--	paginator.ts
+					*--	response.helper.ts
+					*--	shell.service.ts
+					|
+				| 	
+			|
+			\--	views
+				|
+				\--	empty
+					|
+					*--	empty.component.ts
+					*--	empty.component.spec.ts
+					|
+				\--	{module-a}
+				|
+				*--	{module-a}.component.html
+				*--	{module-a}.component.scss
+				*--	{module-a}.component.ts
+				*--	{module-a}.component.spect.ts
+				|
+			|
+			*--	app-routing.module.ts
+			*--	app.component.ts
+			*--	app.component.spec.ts
+			*--	app.constants.ts
+			*--	app.module.ts
+			|
+		|
+		\--	assets (resources)
+		|
+		\--	enviroments
+			|
+			*--	environment.ts
+			*--	environment.local.ts
+			*--	environment.uat.ts
+			*--	environment.prod.ts
+			|
+		|
+		\--	scss (styles files)
+		|
+		*--	favicon.ico
+		*--	index.html
+		*-- main.ts
+		*-- polyfills.ts
+		*-- polyfills.prod.ts
+		*-- styles.scss
+		*-- test.ts		
+		|
+	|
+	*--	angular.json
+	*--	browserlist
+	*--	copy-libs.js
+	*--	package.json
+	*--	package-lock.json
+	*--	tsconfig.json
+	*--	tsconfig.app.json
+	*--	tsconfig.spec.json
+	*--	tslint.json
+	*--	webpack.externals.js
+	|
+``` 
 
 ## 4. Create a custom enviroment and how to use it
 
