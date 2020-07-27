@@ -2,6 +2,7 @@
 
 
 
+
 # [![Angular](images/angular.png)](https://angular.io/) STS Micro FrontEnd
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
@@ -874,7 +875,28 @@ Now, in the domain, in the HTML file  add the tag with the ID.
 ## 10. Storage Provider
 ### 10.1. How to set in localstorage
 
-## 11. Documentation
+
+## 11. Create a Memory Leak
+
+As our application grows in size and logic, the memory management takes importance and it becomes necessary. For that, we have to follow the next steps to avoid this problem.
+
+### a. Execute the command line.
+> npm install @angular-extensions/lint-rules --save-dev
+
+### b. In the tslint.json file add.
+```
+{
+  "extends": [
+    "tslint:recommended",
+    "@angular-extensions/lint-rules"
+  ],
+  ...
+}
+```
+
+For more details visit: [How to create a memory leak in Angular.](https://medium.com/angular-in-depth/how-to-create-a-memory-leak-in-angular-4c583ad78b8b)
+
+## 12. Documentation
 
 To generate a correctly documentation, we use the tool @COMPODOC. 
 
