@@ -235,11 +235,34 @@ For build our application with the custom environment, we have to use the tag *-
 ## 5. Guideline to develop
 
 #### Variables
-* Must use camelCase to define each variable within any component.
+* Must use lower_snake_case.
+
+>	In this example naming_example to define each variable of type number, string, boolean.
 ```
-	applicationNumber
-	birthDate
+	operation_code
+	birth_date
 ```
+
+>	Checkbox type variables must start with the following prefix.
+```
+	chk_email
+```
+
+>	Dropdown type variables must start with the following prefix.
+```
+	select_department
+```
+
+>	Panel type variables must start with the following prefix.
+```
+	panel_address
+```
+
+> 	FormGroup type variables must start with the following prefix.
+```
+	form_applicant
+```
+
 #### Method	
 * Must use camelCase to name methods and consider a name similar to the process you are currently viewing.
 ```
@@ -276,10 +299,10 @@ For build our application with the custom environment, we have to use the tag *-
 	 /**
 	 * Get header of tracking
 	 * @constructor
-	 * @param {number} application - Code of application.
+	 * @param {number} application_code of application.
 	 */
-	getTracking(application: number) {
-		return this.http.get<CustomResponse>(`${this._URLApiBase}tracking/t/${application}`);
+	getTracking(application_code: number) {
+		return this.http.get<CustomResponse>(`${this._URLApiBase}tracking/t/${application_code}`);
 	}
 ```
 #### Static
@@ -318,6 +341,25 @@ emp.empName = 'Bill'; //Compiler Error
 *In the above example, we have the Employee class with two properties- empName and empCode. Since empCode is read only, it can be initialized at the time of declaration or in the constructor.
 If we try to change the value of empCode after the object has been initialized, the compiler shows the following compilation error:
 error TS2540: Cannot assign to empCode' because it is a constant or a read-only property.
+
+#### Folder
+* Must use Kebab Case.
+>	hyphens (-) are those that separate the words.
+```
+	\--	applicant-info
+```
+
+#### Object
+* Must use Kebab Case.
+>	hyphens (-) are those that separate the words.
+```
+	\--	applicant-info
+		*--	applicant-info.component.html
+		*--	applicant-info.component.scss
+		*--	applicant-info.component.ts
+		*--	applicant-info.component.spect.ts
+```
+
 
 ## 6. Main Web & Domains
 In this section, we're going to learn how to develop correctly our Domains and how generate a javascript file to be consumed for our Main Web.
