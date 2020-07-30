@@ -74,28 +74,20 @@ To be more efficient and reduce development times we uses a number of bundles bu
 		\--	enviroments
 			|
 			*--	environment.ts
-			*--	environment.local.ts
-			*--	environment.uat.ts
 			*--	environment.prod.ts
 			|
 		|
 		\--	scss (styles files)
 		|
-		*--	favicon.ico
 		*--	index.html
 		*-- main.ts
 		*-- polyfills.ts
 		*-- polyfills.prod.ts
-		*-- styles.scss
-		*-- test.ts		
 		|
 	|
 	*--	angular.json
 	*--	copy-libs.js
 	*--	package.json
-	*--	tsconfig.json
-	*--	tsconfig.app.json
-	*--	tslint.json
 	*--	webpack.externals.js
 	|
 ``` 
@@ -254,9 +246,11 @@ If we try to change the value of **emp_code** after the object has been initiali
 Before you do the first step, create the route **C:\Fuentes\01Desarrollo\MICROFRONTEND-STS**
 Inside create the directory **`domains`**
 
+![Example](first_steps/200.png)
+
 **1.** Download by the Bitbucket the Microfrontend template project **`sts-core-access`** and the **`sts-libs`**.
 
-![bitbucket](first_steps/200.png)
+![bitbucket](first_steps/201.png)
 
 Open a console and execute
 > **cd C:\Fuentes\01Desarrollo\MICROFRONTEND-STS**
@@ -281,7 +275,6 @@ Here clone `sts-core-access`
 
 Now, the project is ready to contain the new domain.
 
-``-- TBD --``
 #### Is time to add the necessaries components for the new domain. 
 
 **4.** In `src/app/views`, create a new directory. **Example: tray**.
@@ -334,10 +327,12 @@ This commands generate the bundles of our libs, and we are going to use it in th
 ##### Transpile the domain project.
 > **npm run build**
 
-##### Run and see the disaster.
+##### Run and see the disaster in :fire::fire::fire:INTERNET EXPLORER :fire::fire::fire:.
 > **npm run start**
 
 The result for the example
+
+![Example](first_steps/202.png)
 
 
 ##
