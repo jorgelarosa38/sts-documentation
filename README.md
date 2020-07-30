@@ -340,17 +340,19 @@ The result for the example
 
 Every time we configure a new domain, is necessary to know if it is going to consume a backend services. If it is the case, is necessary to have the knowledge of the correct use to Dispatch & Listener Events.
 
+:boom::boom::boom: **TBD** :boom::boom::boom:
 ##
 ## 8. Interceptors
-
+:boom::boom::boom: **TBD** :boom::boom::boom:
 ##
 ## 9. Custom error pages
-
+:boom::boom::boom: **TBD** :boom::boom::boom:
 ##
 ## 10. Storage Provider
 ### 10.1. How to set in localstorage
-##
 
+:boom::boom::boom: **TBD** :boom::boom::boom:
+##
 ## 11. How to handle "memory leaks"
 
 As our application grows in size and logic, the memory management takes importance and it becomes necessary. For that, we have to follow the next steps to avoid this problem.
