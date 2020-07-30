@@ -104,7 +104,7 @@ To be more efficient and reduce development times we uses a number of bundles bu
 
 When we develop a angular application, we have fases or enviroments. First, the develop phase, then the test phase, the QA phase and for the last, production phase. Every phase have differents directories, configurations maybe, for that we could define a environment. 
 
-#### Create a new environment file.
+1. Create a new environment file.
 For example: enviroment.local.ts
 ```
 export  const  environment = {
@@ -112,10 +112,10 @@ export  const  environment = {
 	STANDALONE: true
 };
 ```
-#### Configure your enviroment in `angular.json`
+2. Configure your enviroment in `angular.json`
 In the section "configuration", we have to define the configuration of our new environment.
 
-Finally, to build our application with the custom environment, we have to use the tag *--configuration={environment-name}* in your build script.
+3. Finally, to build our application with the custom environment, we have to use the tag *--configuration={environment-name}* in your build script.
 
 ![custom_environment](first_steps/75.png)
 
@@ -123,7 +123,7 @@ Finally, to build our application with the custom environment, we have to use th
 ## 5. Guideline to develop
 
 
-#### Variables
+####  Variables
 * Must use lower_snake_case.
 
 >	In this example naming_example to define each variable of type number, string, boolean.
@@ -256,7 +256,7 @@ Inside create the directory **`domains`**
 
 **1.** Download by the Bitbucket the Microfrontend template project **`sts-core-access`** and the **`sts-libs`**.
 
-	![bitbucket](first_steps/200.png)
+![bitbucket](first_steps/200.png)
 
 Open a console and execute
 > **cd C:\Fuentes\01Desarrollo\MICROFRONTEND-STS**
@@ -272,9 +272,8 @@ Here clone `sts-core-access`
 
 **2.** Now, open the `sts-core-access` project and we're going to clean it to only have the necessary.
 	
-		a. In `src/app/app-routing.module.ts` and `src/app/app.module.ts`, 
-		delete the references for errors `404` & `500`. 
-		b.	In "src/app/views", delete the directories `error400` & `error500`.
+##### 	In `src/app/app-routing.module.ts` and `src/app/app.module.ts`,  delete the references for errors `404` & `500`. 
+#####	Then, in "src/app/views", delete the directories `error400` & `error500`.
 		
 **3.** Change the  name of the project, use `Ctrl + Shift + F`, search `sts-core-access` and replace it for the name of the new domain.
 
@@ -289,12 +288,12 @@ Now, the project is ready to contain the new domain.
 **5.** Inside that directory, add the components necessaries (.ts, .html, .scss).
 ```
 	|
-	\--  tray
-				|
-				|--+ tray.component.html
-				|--+ tray.component.scss
-				|--+ tray.component.spec.ts
-				|--+ tray.component.ts
+	\-- tray
+		|
+		|--+ tray.component.html
+		|--+ tray.component.scss
+		|--+ tray.component.spec.ts
+		|--+ tray.component.ts
 ```
 **6.**  In `src/app`, in `app-routing.module.ts` define the domain's routes. 
 ##### Example: "{ path:  'sts-core-tray', component:  TrayComponent}"
@@ -313,13 +312,29 @@ declarations: [
 	EmptyComponent,
 ]
 ```
-**8.** For the last, stand by the develop of your domain and open the `sts-libs` project
+**8.** For the last, stand by the develop of your domain and open the `sts-libs` project. Inside execute the next commands lines and copy bundles directories.
 
+##### Install the libraries for the project 
 > **npm install**
 
+##### Transpile the stslibcoverweb
+> **ng build --project stslibcoverweb**
+
+##### Transpile the *stslibutils  
+> **ng build --project stslibutils**
+
+This commands generate the bundles of our libs, and we are going to use it in the domain.
+
 **9**. Now, is time to test our application. Open a console and execute.
+> **If we create correctly the directories and you followed the previous steps, you shouldn't have any problem.**
+
+##### Install the libraries for the project .
+> **npm install**
+
+##### Transpile the domain project.
 > **npm run build**
 
+##### Run and see the disaster.
 > **npm run start**
 
 The result for the example
