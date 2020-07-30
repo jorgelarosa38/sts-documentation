@@ -1,8 +1,4 @@
 ﻿
-
-
-
-
 # [![Angular](images/angular.png)](https://angular.io/) STS Micro FrontEnd
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
@@ -16,91 +12,26 @@ The porpouse of this topic is show you how to build your own MicroFrontend Web. 
 Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
 ##
 ## 1. First steps to start in Angular
-
-### *Install the necesary softwares.*
-#### Install NodeJS: [![NodeJS](images/nodejs.png "NodeJS")](https://nodejs.org/es/download/)
-#### Install Visual Studio Code: [![ https://code.visualstudio.com/download ](images/vsc.png)](https://code.visualstudio.com/download )
-#### Exceute the next command line to install ANGULAR:
+*Install the necesary softwares.*
+##### Install NodeJS (v12.18.2): [![NodeJS](images/nodejs.png "NodeJS")](https://nodejs.org/download/release/v12.18.2/)
+##### Install Visual Studio Code (v1.47.*): [![VSC](images/vsc.png "Visual Studio Code")](https://code.visualstudio.com/updates/v1_47)
+##### Exceute the next command line to install ANGULAR:
 > nmp install -g @angular/cli@8.3.2
 *This command open the possibility to use the "ng" command to generate our Angular project.*
 
-## 
-
+##
 ## 2. Custom Libraries
 
-Our microfrontend project use two (2) libraries. "stslibcoverweb" & "stslibutils".
+To be more efficient and reduce development times we uses a number of bundles built by us to work properly:
 
-![libs](first_steps/106.png)
+* [STSLIBCOVERWEB] - Encryptation & compression tool for **Personally Identifiable Information (PII)**.
+* [STSLIBUTILS] - Helpers for the domains projects.
 
-Every time we update one of them, we have to rebuild the project, transpile and generate new `.umd` files . 
-
-![libs](first_steps/107.png)
-
-![libs](first_steps/108.png)
-
-Next, is necessary reinstall the libraries in the main web.
-> npm i {lib-directory}/dist/{lib-name}
-
-For example:
-> npm i C:\Fuentes\01Desarrollo\MICROFRONTEND-STS\sts-libs\dist\stslibcoverweb
-
-
-### 2.1. STSLIBCOVERWEB
-If you need to save a variable in the localstorage, the StorageService is the indicated.
-
-Use it in the component's constructor.
-
-![libs](first_steps/109.png)
-
-And now, the methods.
-
-### a. set : save a value.
-
-![libs](first_steps/110.png)
-
-### b. get: obtain a value.
-
-![libs](first_steps/111.png)
-
-### c.setJson: save a JSON object.
-
-![libs](first_steps/112.png) 
-
-### d.getJson: obtain a JSON object.
-
-![libs](first_steps/113.png) 
-
-Are you looking how to compress a string or an object? Stop looking and use the GZipServices. 
-
-Use it in the component's constructor.
-
-![libs](first_steps/114.png)
-
-And now, the methods.
-
-### a. gunzipJson : uncompress a JSON object.
-
-![libs](first_steps/115.png)
-
-### b. gzipJson: compress a JSON object.
-
-![libs](first_steps/116.png)
-
-### c.gzipText: uncompress a string.
-
-![libs](first_steps/117.png) 
-
-### d.gunzipText: compress a string.
-
-![libs](first_steps/118.png) 
-
+> Remember each library is a complement to be better in this project, if you find some bug, please report us.
+##
 ## 3. Project Structure
 ```
 {domain-name}
-	|
-	\--	dist
-	|
-	\--	node_modules (libraries)
 	|
 	\--	src
 		|
@@ -108,55 +39,27 @@ And now, the methods.
 			|
 			\--	core
 				|
-				\--	interceptor
-					|
-					*--	backforfrontend.interceptor.ts
-					*--	fakebackend.interceptor.ts
-					|
-					*-- authorization.ts
-					*-- custom-response.ts
-					*-- menu.ts
-					*-- user.ts
-					|
-				|
 				\--	models
-					|
 				|
 				\--	services
-					|
-					\-- auth
-						|
-						*-- authentication.service.ts
-						*-- menu.service.ts
-						|
+				|
 			|
 			\--	shared
 				|
+				\--	directives
+				|
 				\-- helpers
-					|
-					*--	auth.guard.ts
-					*--	config.ts
-					*--	dependence.module.ts
-					*--	ngbDateCustomParserFormatter.ts
-					*--	paginator.ts
-					*--	response.helper.ts
-					*--	shell.service.ts
-					|
+				|
+				\--	layouts
+				|
+				\--	pipes
 				| 	
 			|
 			\--	views
 				|
 				\--	empty
-					|
-					*--	empty.component.ts
-					*--	empty.component.spec.ts
-					|
-				\--	{module-a}
 				|
-				*--	{module-a}.component.html
-				*--	{module-a}.component.scss
-				*--	{module-a}.component.ts
-				*--	{module-a}.component.spect.ts
+				\--	{module-a}
 				|
 			|
 			*--	app-routing.module.ts
@@ -171,70 +74,48 @@ And now, the methods.
 		\--	enviroments
 			|
 			*--	environment.ts
-			*--	environment.local.ts
-			*--	environment.uat.ts
 			*--	environment.prod.ts
 			|
 		|
 		\--	scss (styles files)
 		|
-		*--	favicon.ico
 		*--	index.html
 		*-- main.ts
 		*-- polyfills.ts
 		*-- polyfills.prod.ts
-		*-- styles.scss
-		*-- test.ts		
 		|
 	|
 	*--	angular.json
-	*--	browserlist
 	*--	copy-libs.js
 	*--	package.json
-	*--	package-lock.json
-	*--	tsconfig.json
-	*--	tsconfig.app.json
-	*--	tsconfig.spec.json
-	*--	tslint.json
 	*--	webpack.externals.js
 	|
 ``` 
+##
+## 4. Custom environment
 
-## 4. Create a custom enviroment and how to use it
+When we develop a angular application, we have fases or enviroments. First, the develop phase, then the test phase, the QA phase and for the last, production phase. Every phase have differents directories, configurations maybe, for that we could define a environment. 
 
-### Create a new enviroment file.
+1. Create a new environment file.
 For example: enviroment.local.ts
 ```
 export  const  environment = {
-	(DEFINITIONS...)
+	production: false,
+	STANDALONE: true
 };
 ```
-### Configure your enviroment in `angular.json`
-```
-{...
-	"project":{
-		{project-name}:{...
-			"architect":{
-				"build":{...
-					"configurations":{
-						{enviroment}:{
-							(CONFIGURATIONS...)
-						}
-					}
-				}
-			}
-		}
-	}
-}
-```
-For build our application with the custom environment, we have to use the tag *--configuration={environment-name}* in your build script.
+2. Configure your enviroment in `angular.json`
+In the section "configuration", we have to define the configuration of our new environment.
 
-![launch custom environment](first_steps/75.png)
+3. Finally, to build our application with the custom environment, we have to use the tag *--configuration={environment-name}* in your build script.
 
+![custom_environment](first_steps/75.png)
 
+##
 ## 5. Guideline to develop
 
-#### Variables
+
+####  Variables
 * Must use lower_snake_case.
 
 >	In this example naming_example to define each variable of type number, string, boolean.
@@ -325,22 +206,22 @@ Circle.calculateArea(5); // returns 78.5
 * Prefix readonly is used to make a property as read-only.
 ```
 class Employee {
-    readonly empCode: number;
-    empName: string;
+    readonly emp_code: number;
+    emp_name: string;
     
     constructor(code: number, name: string)     {
-        this.empCode = code;
-        this.empName = name;
+        this.emp_code = code;
+        this.emp_name = name;
     }
 }
 ```
 let emp = new Employee(10, "John");
-emp.empCode = 20; //Compiler Error
-emp.empName = 'Bill'; //Compiler Error
+emp.emp_code = 20; //Compiler Error
+emp.emp_name = 'Bill'; //Compiler Error
 
-*In the above example, we have the Employee class with two properties- empName and empCode. Since empCode is read only, it can be initialized at the time of declaration or in the constructor.
-If we try to change the value of empCode after the object has been initialized, the compiler shows the following compilation error:
-error TS2540: Cannot assign to empCode' because it is a constant or a read-only property.
+> In the above example, we have the Employee class with two properties- **emp_name** and **emp_code**. Since **emp_code** is read only, it can be initialized at the time of declaration or in the constructor.
+If we try to change the value of **emp_code** after the object has been initialized, the compiler shows the following compilation error:
+**error TS2540: Cannot assign to emp_code because it is a constant or a read-only property.**
 
 #### Folder
 * Must use Kebab Case.
@@ -348,7 +229,6 @@ error TS2540: Cannot assign to empCode' because it is a constant or a read-only 
 ```
 	\--	applicant-info
 ```
-
 #### Object
 * Must use Kebab Case.
 >	hyphens (-) are those that separate the words.
@@ -359,566 +239,121 @@ error TS2540: Cannot assign to empCode' because it is a constant or a read-only 
 		*--	applicant-info.component.ts
 		*--	applicant-info.component.spect.ts
 ```
+##
+## 6. Develop a new Domain
+> Certainly, we have two kind of projects. A Main Web Project and his respectives domains (Microfrontend).
 
+Before you do the first step, create the route **C:\Fuentes\01Desarrollo\MICROFRONTEND-STS**
+Inside create the directory **`domains`**
 
-## 6. Main Web & Domains
-In this section, we're going to learn how to develop correctly our Domains and how generate a javascript file to be consumed for our Main Web.
+![Example](first_steps/200.png)
 
-### Step Zero: *Define the directory where we are going to develop*
-![1](first_steps/1.png) 
+**1.** Download by the Bitbucket the Microfrontend template project **`sts-core-access`** and the **`sts-libs`**.
 
-### Step One: *Execute the line command and create a new project.*
-> ng new {project-name} 
+![bitbucket](first_steps/201.png)
 
-app.module.ts
+Open a console and execute
+> **cd C:\Fuentes\01Desarrollo\MICROFRONTEND-STS**
 
-> For example: ng new web-stsenableProdMode 
+Here clone `sts-libs`
+> **git clone {STS-LIBS-URL}** 
 
-![_](first_steps/2.png)
+Then enter to `domains` directory
+> **cd domains**
 
-### Step Three: *Send "y" to the angular router file and select "SCSS" in the console.*
- ![_](first_steps/3.png)
- 
- ![_](first_steps/4.png)
- 
-This selected options load the basic configurations.
- 
- ![_](first_steps/5.png)
+Here clone `sts-core-access`
+> **git clone {STS-CORE-ACCESS-URL}**
 
-### Step Four: *Open the project's directory in Visual Studio Code and start adding the configurations for our project.*
-  ![_](first_steps/6.png)
+**2.** Now, open the `sts-core-access` project and we're going to clean it to only have the necessary.
+	
+##### 	In `src/app/app-routing.module.ts` and `src/app/app.module.ts`,  delete the references for errors `404` & `500`. 
+#####	Then, in "src/app/views", delete the directories `error400` & `error500`.
+		
+**3.** Change the  name of the project, use `Ctrl + Shift + F`, search `sts-core-access` and replace it for the name of the new domain.
 
-### Step Five: *Modify the* `angular.json` *.*
-  We need to define the way that the project is gonna be built. For that, follow the next steps.
+#####  Example: sts-core-tray.
+
+Now, the project is ready to contain the new domain.
+
+#### Is time to add the necessaries components for the new domain. 
+
+**4.** In `src/app/views`, create a new directory. **Example: tray**.
+**5.** Inside that directory, add the components necessaries (.ts, .html, .scss).
 ```
-MODIFY:
-{
-	"project":{
-		"{name-project}":{
-			"architec":{ 
-				"build"{
-					"builder": "ngx-build-plus:browser",
-					"option":{
-						"styles":[
-							"node_modules/font-awesome/css/font-awesome.css",
-							"src/scss/style.scss"
-							]
-					...},
-					"configuration":{
-						"production":{
-							"fileReplacements": [
-								{
-									"replace": "src/polyfills.ts",
-									"with": "src/polyfills.prod.ts"
-								}
-								{
-									"replace": "src/environments/environment.ts",
-									"with": "src/environments/environment.prod.ts"
-								},
-							...]
-						...}
-					...}
-				...},
-				"serve":{
-					"builder": "ngx-build-plus:dev-server",
-				...}
-			...}
-		...} 
-	...}
-}
+	|
+	\-- tray
+		|
+		|--+ tray.component.html
+		|--+ tray.component.scss
+		|--+ tray.component.spec.ts
+		|--+ tray.component.ts
 ```
-  ![_](first_steps/7.png)
-
-
-### Step Six: *Modify the `package.json`  file.*
+**6.**  In `src/app`, in `app-routing.module.ts` define the domain's routes. 
+##### Example: "{ path:  'sts-core-tray', component:  TrayComponent}"
 ```
-{
-	"name": "{project-name}",
-	"version": "0.0.0",
-	"scripts": {
-		...,
-		"start": "live-server dist/{project-name}",
-		"build": "ng build --prod --output-hashing none --vendor-chunk false",
-		...
-	},
-	"resolutions": {
-		"yargs-parser": "^13.1.2"
-	},
-	"private": true,
-	"dependencies": {
-		"@angular/animations": "~8.2.4",
-		"@angular/cdk": "^8.0.0",
-		"@angular/common": "~8.2.4",
-		"@angular/compiler": "~8.2.4",
-		"@angular/core": "~8.2.4",
-		"@angular/elements": "^8.2.14",
-		"@angular/forms": "~8.2.4",
-		"@angular/platform-browser": "~8.2.4",
-		"@angular/platform-browser-dynamic": "~8.2.4",
-		"@angular/router": "~8.2.4",
-		"@auth0/angular-jwt": "^3.0.1",
-		"@coreui/angular": "^2.7.3",
-		"@coreui/coreui": "^2.1.16",
-		"@ng-bootstrap/ng-bootstrap": "^5.1.5",
-		"@swimlane/ngx-datatable": "16.1.1",
-		"@syncfusion/ej2-angular-richtexteditor": "^17.4.44",
-		"@webcomponents/custom-elements": "^1.4.2",
-		"@webcomponents/webcomponentsjs": "^2.2.10",
-		"angular-font-awesome": "^3.1.2",
-		"bootstrap": "^4.4.1",
-		"classlist.js": "^1.1.20150312",
-		"compodoc": "0.0.41",
-		"copy": "^0.3.2",
-		"core-js": "^2.6.9",
-		"crypto-browserify": "^3.12.0",
-		"crypto-js": "^4.0.0",
-		"custom-event": "^1.0.1",
-		"custom-event-polyfill": "^1.0.7",
-		"date-fns": "^2.9.0",
-		"document-register-element": "^1.14.3",
-		"font-awesome": "^4.7.0",
-		"jsencrypt": "^3.0.0-rc.1",
-		"live-server": "^1.2.1",
-		"mutationobserver-shim": "^0.3.3",
-		"ng6-toastr-notifications": "^1.0.4",
-		"ngx-bootstrap": "^5.6.1",
-		"ngx-perfect-scrollbar": "^8.0.0",
-		"ngx-spinner": "^8.1.0",
-		"pako": "^1.0.11",
-		"rxjs": "~6.4.0",
-		"secure-ls": "^1.2.6",
-		"sjcl": "^1.0.8",
-		"stslibcoverweb": "file:../../sts-libs/dist/stslibcoverweb",
-		"stslibutils": "file:../../sts-libs/dist/stslibutils",
-		"tslib": "^1.10.0",
-		"web-animations-js": "^2.3.2",
-		"webpack-dev-server": "^3.1.14",
-		"zone.js": "~0.9.1"
-	},
-	"devDependencies": {
-		"@angular-devkit/build-angular": "~0.803.2",
-		"@angular/cli": "~8.3.2",
-		"@angular/compiler-cli": "~8.2.4",
-		"@angular/language-service": "~8.2.4",
-		"@types/jasmine": "~3.3.8",
-		"@types/jasminewd2": "~2.0.3",
-		"@types/node": "~8.9.4",
-		"codelyzer": "^5.0.0",
-		"jasmine-core": "~3.4.0",
-		"jasmine-spec-reporter": "~4.2.1",
-		"karma": "^5.0.4",
-		"karma-chrome-launcher": "~2.2.0",
-		"karma-coverage-istanbul-reporter": "~2.0.1",
-		"karma-jasmine": "~2.0.1",
-		"karma-jasmine-html-reporter": "^1.4.0",
-		"ngx-build-plus": "^9.0.6",
-		"protractor": "^7.0.0",
-		"ts-node": "~7.0.0",
-		"tslint": "~5.15.0",
-		"typescript": "~3.5.3"
-	}
-}
+const  routes: Routes = [
+	{ path:  'sts-core-tray', component:  TrayComponent},
+	{ path:  '**', component:  EmptyComponent }
+];
 ```
-
-### Step Seven: *Modify the `polyfill.ts` file*
+**7.** In `src/app`, in `app.module.ts`, In the section **declarations** add the new component.
+#####  Example: TrayComponent
 ```
-/**
-* This file includes polyfills needed by Angular and is loaded before the app.
-* You can add your own extra polyfills to this file.
-* This file is divided into 2 sections:
-* 1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.
-* 2. Application imports. Files imported after ZoneJS that should be loaded before your main
-* file.
-* The current setup is for so-called "evergreen" browsers; the last versions of browsers that
-* automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),
-* Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.
-* Learn more in https://angular.io/guide/browser-support
-*/
-/***************************************************************************************************
-* BROWSER POLYFILLS
-*/
-/** IE9, IE10 and IE11 requires all of the following polyfills. **/
-import  'core-js/es6/symbol';
-import  'core-js/es6/object';
-import  'core-js/es6/function';
-import  'core-js/es6/parse-int';
-import  'core-js/es6/parse-float';
-import  'core-js/es6/number';
-import  'core-js/es6/math';
-import  'core-js/es6/string';
-import  'core-js/es6/date';
-import  'core-js/es6/array';
-import  'core-js/es6/regexp';
-import  'core-js/es6/map';
-import  'core-js/es6/weak-map';
-import  'core-js/es6/set';
-import  'core-js/es7/array';
-import  'core-js/es7/object';
-/** IE10 and IE11 requires the following for the Reflect API. */
-import  'core-js/es6/reflect';
-// for IE10
-import  'mutationobserver-shim';
-/** IE10 and IE11 requires the following for NgClass support on SVG elements */
-import  'classlist.js'; // Run `npm install --save classlist.js`.
-/**
-* Web Animations `@angular/platform-browser/animations`
-* Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.
-* Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).
-*/
-import  'web-animations-js'; // Run `npm install --save web-animations-js`.
-/**
-* By default, zone.js will patch all possible macroTask and DomEvents
-* user can disable parts of macroTask/DomEvents patch by setting following flags
-* because those flags need to be set before `zone.js` being loaded, and webpack
-* will put import in the top of bundle, so user need to create a separate file
-* in this directory (for example: zone-flags.ts), and put the following flags
-* into that file, and then add the following code before importing zone.js.
-* import './zone-flags.ts';
-* The flags allowed in zone-flags.ts are listed here.
-* The following flags will work for all browsers.
-*/
-(window  as  any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame
-(window  as  any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick
-(window  as  any).__zone_symbol__UNPATCHED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames
-/*
-* in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js
-* with the following flag, it will bypass `zone.js` patch for IE/Edge
-*/
-(window  as  any).__Zone_enable_cross_context_check = true;
-/*
-*/
-/**********************************************************************************
-* Zone JS is required by default for Angular itself.
-import  'zone.js/dist/zone'; // Included with Angular CLI.
-/**************************************************************************************
-* APPLICATION IMPORTS
-*/
-// IE
-import  '@webcomponents/custom-elements/custom-elements.min';
-//CustomEvent
-import  'custom-event-polyfill';
+declarations: [
+	AppComponent,
+	TrayComponent,
+	EmptyComponent,
+]
 ```
-### Step Eight: Create a javascript file `copy-libs.js`. This file copy de necessary libs to the assets, there the project use it to be launch.
+**8.** For the last, stand by the develop of your domain and open the `sts-libs` project. Inside execute the next commands lines and copy bundles directories.
 
-```
-const  copy = require('copy');
-console.log('Copy libraries to project');
-copy('node_modules/@webcomponents/custom-elements/src/native-shim.js', 'src/assets', {}, _  => {});
-copy('node_modules/rxjs/bundles/rxjs.umd.js', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/core/bundles/core.umd.js', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/common/bundles/common.umd.js', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/common/bundles/common-http.umd.js', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/compiler/bundles/compiler.umd.js', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/elements/bundles/elements.umd.js', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/platform-browser/bundles/platform-browser.umd.js', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js', 'src/assets', {}, _  => {});
-copy('node_modules/crypto-js/crypto-js.js', 'src/assets', {}, _  => {});
-copy('node_modules/sjcl/sjcl.js', 'src/assets', {}, _  => {});
-copy('node_modules/secure-ls/dist/secure-ls.min.js', 'src/assets', {}, _  => {});
-copy('node_modules/@webcomponents/custom-elements/src/native-shim.js.map', 'src/assets', {}, _  => {});
-copy('node_modules/rxjs/bundles/rxjs.umd.js.map', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/core/bundles/core.umd.js.map', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/common/bundles/common.umd.js.map', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/common/bundles/common-http.umd.js.map', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/compiler/bundles/compiler.umd.js.map', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/elements/bundles/elements.umd.js.map', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/platform-browser/bundles/platform-browser.umd.js.map', 'src/assets', {}, _  => {});
-copy('node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js.map', 'src/assets', {}, _  => {});
-copy('node_modules/crypto-js/crypto-js.js.map', 'src/assets', {}, _  => {});
-copy('node_modules/sjcl/sjcl.js.map', 'src/assets', {}, _  => {});
-copy('node_modules/secure-ls/dist/secure-ls.min.js.map', 'src/assets', {}, _  => {});
-```
-### Step Nine: Create a javascript file `webpack.externals.js`. This file define the shared libraries into domain and main web.
-```
-const  webpack = require('webpack');
+##### Install the libraries for the project 
+> **npm install**
 
-module.exports =
-{
-	"externals": {
-		"rxjs":  "rxjs",
-		"@angular/core":  "ng.core",
-		"@angular/common":  "ng.common",
-		"@angular/common/http":  "ng.common.http",
-		"@angular/platform-browser":  "ng.platformBrowser",
-		"@angular/platform-browser-dynamic":  "ng.platformBrowserDynamic",
-		"@angular/compiler":  "ng.compiler",
-		"@angular/elements":  "ng.elements",
-		"crypto-js":'CryptoJS',
-		"sjcl":'sjcl',
-		"secure-ls":  "SecureLS",
-		"stslibcoverweb":"stslibcoverweb",
-		"stslibutils":"stslibutils",
-		"zone.js":  'Zone'
-		// Uncomment and add to scripts in angular.json if needed
-		// "@angular/router": "ng.router",
-		// "@angular/forms": "ng.forms"
-	}
-}
-```
+##### Transpile the stslibcoverweb
+> **ng build --project stslibcoverweb**
 
-### Step Ten: *Create a* `polyfills.prod.ts` *this file is empty. This file is going to replace the* `polyfills.ts` *in the production enviroment. Just a trick for production enviroment.*
-![Production Polyfills](first_steps/43.png)
+##### Transpile the *stslibutils  
+> **ng build --project stslibutils**
 
-### Step Eleven: *Modify the* `tsconfig.json`
-Importan!
-The "target" script need to be "es5" if we needed to launch our web in older browsers, at once, the polyfills.ts file define the necesary libraries to run correctly there.
-```
-{
-	"compileOnSave": false,
-	"compilerOptions": {
-		"baseUrl": "./",
-		"paths": {
-			"crypto": [
-			"node_modules/crypto-js"
-			]
-		},
-		"outDir": "./dist/out-tsc",
-		"sourceMap": true,
-		"declaration": false,
-		"downlevelIteration": true,
-		"experimentalDecorators": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"importHelpers": true,
-		"target": "es5",
-		"typeRoots": [
-			"node_modules/@types"
-		],
-		"lib": [
-			"es2018",
-			"dom"
-		]
-	},
-	"angularCompilerOptions": {
-		"fullTemplateTypeCheck": true,
-		"strictInjectionParameters": true
-	}
-}
-```
-### Step Twelve: *Excute the lines commands*
-> npm install
+This commands generate the bundles of our libs, and we are going to use it in the domain.
 
-> npx npm-force-resolutions
+**9**. Now, is time to test our application. Open a console and execute.
+> **If we create correctly the directories and you followed the previous steps, you shouldn't have any problem.**
 
-> npm update @webpack-dev-server@3.1.14)
+##### Install the libraries for the project .
+> **npm install**
 
-### 6.1. Create a Domain
+##### Transpile the domain project.
+> **npm run build**
 
+##### Run and see the disaster in :fire::fire::fire:INTERNET EXPLORER :fire::fire::fire:.
+> **npm run start**
 
-### We create the folder "core" and "shared" with their corresponding objects:
+The result for the example
 
-![Core and Shared](first_steps/49.png)
+![Example](first_steps/202.png)
 
-### Now we enter the following command where we will create our component.
-> ng g c views/CreditApplicationPicker --dry-run
 
-![Core and Shared](first_steps/50.png)
-
-> ng g c views/CreditApplicationPicker
-
-![Core and Shared](first_steps/51.png)
-
-### Now we enter the following command where we will create the empty component.
-> ng g c views/empty --inline-template --inline-style --dry-run 
-
-![Core and Shared](first_steps/52.png)
-
-If everything is correct we proceed to create it.
-> ng g c views/empty --inline-template --inline-style
-
-![Core and Shared](first_steps/53.png)
-
-### We update our routing with the necessary routes.
-
-![Core and Shared](first_steps/54.png)
-
-### Delete the object "app.component.html" as it would not be necessary for the domain.
-
-![Core and Shared](first_steps/55.png)
-
-### Delete the object "app.component.css as it would not be necessary for the domain.
-
-![Core and Shared](first_steps/56.png)
-
-### We create the object "app.constants.ts"
-
-![Core and Shared](first_steps/57.png)
-
-### Updated the object "app.component.ts"
-
-![Core and Shared](first_steps/58.png)
-
-### Updated the "app.module.ts" object.
-
-![Core and Shared](first_steps/59.png)
-
-### We add the domain name as we have it in the "index.html"
-
-![Core and Shared](first_steps/60.png)
-
-### We comment "enableProdMode()" in main.ts when it is run for production.
-
-![Core and Shared](first_steps/62.png)
-
-### Run the command, to generate the dist folder with the main.js
-> npm run build:externals 
-
-![Core and Shared](first_steps/63.png)
-
-![Core and Shared](first_steps/64.png)
-
-### Change the "main.js" to the domain name "sts-core-creditapplicationpicker.js"
-
-![Core and Shared](first_steps/65.png)
-
-### To approve the domain, we add it to the web "web-sts-mo" and the "assets" folder.
-
-![Core and Shared](first_steps/66.png)
-
-### We add in the "environment.ts" our domain variable.
-
-![Core and Shared](first_steps/67.png)
-
-### Agregamos en el “environment.prod.ts” nuestra variable del dominio.
-
-![Core and Shared](first_steps/68.png)
-
-### We add our route in “app.component.ts”
-
-![Core and Shared](first_steps/69.png)
-
-### We add our menu.
-
-![Core and Shared](first_steps/70.png)
-
-### Now, we execute the following command to generate the web dist.
-> npm run build:externals
-
-![Core and Shared](first_steps/71.png)
-
-### Now we execute the following command to raise the web and test our domain.
-> npm start
-
-![Core and Shared](first_steps/72.png)
-
-![Core and Shared](first_steps/73.png)
-
-### Click on the "General Tray" menu.
-
-![Core and Shared](first_steps/74.png)
-
-#### 6.1.1. Create a custom library
-
-For this project, we use two custom libraries. One for crypt and compress data through a interceptor's logic, and other for utility helpers necessaries to the correctly performances.
-
-To create a new library project, execute.
-> ng new {workspace-name} --create-application=false
-
-> cd {workspace-name}
-
-> ng generate library {library-name}
-
-Inside the project, we are going to see this structure.
-
-![LIBS](first_steps/78.png)
-
-In the example image, we have the two libraries mentionated in the beginning.
-
-There, the project have a src/lib directory where we are going to create our services with the logic necessary.
-
-![SERVICES](first_steps/79.png)
-
-![EXAMPLE](first_steps/80.png)
-
-At the same time, in the project, in the `public-api.ts` we have to define the services to expose in our library.
-
-![PUBLIC-API](first_steps/81.png)
-
-To configure the build and the dependencies, `angular.json` and `package.json` files work equal just like a application project.
-
-#### 6.1.2. Create a shared library
-
-In a microfrontend design, the proyects have them own dependencies, and works alones structures and develop for the correspondent team. But, in performance and loading time, we are duplicating the code, into the future this could be negative.
-BUT! there are a solution for that, called WEBPACK. Is a file where we put all the libraries we share between domains and the main web.
-
-Here a example in our project: 
-
-![WebPack](first_steps/105.png)
-
-`webpack.externals.js`
-```
-const  webpack = require('webpack');
-
-module.exports =
-{
-	"externals": {
-		"rxjs":  "rxjs",
-		"@angular/core":  "ng.core",
-		"@angular/common":  "ng.common",
-		"@angular/common/http":  "ng.common.http",
-		"@angular/platform-browser":  "ng.platformBrowser",
-		"@angular/platform-browser-dynamic":  "ng.platformBrowserDynamic",
-		"@angular/compiler":  "ng.compiler",
-		"@angular/elements":  "ng.elements",
-		"crypto-js":'CryptoJS',
-		"sjcl":'sjcl',
-		"secure-ls":  "SecureLS",
-		"stslibcoverweb":"stslibcoverweb",
-		"stslibutils":"stslibutils",
-		"zone.js":  'Zone'
-		// Uncomment and add to scripts in angular.json if needed
-		// "@angular/router": "ng.router",
-		// "@angular/forms": "ng.forms"
-	}
-}
-```
-And, how we use that in the project? Go to the `package.json` and verify you have installed `ngx-build-plus`. If not, run the command line:
-> ng add ngx-build-plus
-
-And add in the scripts:
-> "build:externals": "ng build --extra-webpack-config {webpack-name}.js --prod --output-hashing none --vendor-chunk false --single-bundle true"
-
-By last, in the console, execute:
-> npm run build:externals
-
-For more details, visit: 
-#### 6 Steps to your Angular-based Microfrontend Shell
-[6 Steps to your Angular-based Microfrontend Shell](https://www.angulararchitects.io/aktuelles/6-steps-to-your-angular-based-microfrontend-shell/)
-
-#### Your options for building Angular Elements with the CLI
-[Your options for building Angular Elements with the CLI](https://www.angulararchitects.io/aktuelles/your-options-for-building-angular-elements/)
-
-### 6.2. Create a Domain with SubDomain
-What is a `subdomain`?
-Well, in a microfrontend we have a main web and diferents domains, but sometimes, this domains consume other domain. So, what have we to do for that?
-
-All the domains have a CustomElement created in `app.module.ts` file. Inside is defined an ID.
-
-![id](first_steps/76.png)
-
-
-This code open our domain to be consumed for others domains. 
-
-
-Now, in the domain, in the HTML file  add the tag with the ID.
-
-
-![id](first_steps/77.png)
-
-### 6.3. Configure Site Application
-
+##
 ## 7. Dispatch & Listener Events
 
-## 8. Interceptors? What the hell is that?
+Every time we configure a new domain, is necessary to know if it is going to consume a backend services. If it is the case, is necessary to have the knowledge of the correct use to Dispatch & Listener Events.
 
-
+:boom::boom::boom: **TBD** :boom::boom::boom:
+##
+## 8. Interceptors
+:boom::boom::boom: **TBD** :boom::boom::boom:
+##
 ## 9. Custom error pages
-
+:boom::boom::boom: **TBD** :boom::boom::boom:
+##
 ## 10. Storage Provider
 ### 10.1. How to set in localstorage
 
-
-## 11. Create a Memory Leak
+:boom::boom::boom: **TBD** :boom::boom::boom:
+##
+## 11. How to handle "memory leaks"
 
 As our application grows in size and logic, the memory management takes importance and it becomes necessary. For that, we have to follow the next steps to avoid this problem.
 
@@ -937,10 +372,10 @@ As our application grows in size and logic, the memory management takes importan
 ```
 
 For more details visit: [How to create a memory leak in Angular.](https://medium.com/angular-in-depth/how-to-create-a-memory-leak-in-angular-4c583ad78b8b)
+##
+## 12. Angular Documentation
 
-## 12. Documentation
-
-To generate a correctly documentation, we use the tool @COMPODOC. 
+To generate a correctly documentation, we use the tool **@COMPODOC**. This generate html files where you can find the summary of components, classes, modules and details of our project. 
 
 In the project execute the next line commands.
 > npm install -g @compodoc/compodo
@@ -948,7 +383,7 @@ In the project execute the next line commands.
 >compodoc -p ./tsconfig.json -s
 
 A new folder "Documentation" would be generated and inside all your Angular project are defined.
-
+##
 License
 ----
 
@@ -959,25 +394,5 @@ MIT
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
-
-   [dill]: <https://github.com/joemccann/dillinger>
-   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
-   [john gruber]: <http://daringfireball.net>
-   [df1]: <http://daringfireball.net/projects/markdown/>
-   [markdown-it]: <https://github.com/markdown-it/markdown-it>
-   [Ace Editor]: <http://ace.ajax.org>
-   [node.js]: <http://nodejs.org>
-   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
-   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-   [express]: <http://expressjs.com>
-   [AngularJS]: <http://angularjs.org>
-   [Gulp]: <http://gulpjs.com>
-
-   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
-   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
-   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
-   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
+   [PII]: <[https://piwik.pro/blog/what-is-pii-personal-data/](https://piwik.pro/blog/what-is-pii-personal-data/)>
 

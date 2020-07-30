@@ -382,6 +382,8 @@ In the project execute the next line commands.
 
 >compodoc -p ./tsconfig.json -s
 
+### Extra: [List of icons](https://gist.github.com/rxaviers/7360908)  :stuck_out_tongue_winking_eye:
+
 A new folder "Documentation" would be generated and inside all your Angular project are defined.
 ##
 License
