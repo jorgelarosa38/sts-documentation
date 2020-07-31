@@ -253,6 +253,10 @@ If we try to change the value of **emp_code** after the object has been initiali
 ## 06. Develop a new Domain
 > Certainly, we have two kind of projects. A Main Web Project and his respectives domains (Microfrontend).
 
+**branch-name:** UNDEFINED
+**sts-libs-url:**	UNDEFINED
+**sts-core-access-url:** UNDEFINED
+
 Before you do the first step, create the route **C:\Fuentes\01Desarrollo\MICROFRONTEND-STS**
 Inside create the directory **`domains`**
 
@@ -266,13 +270,13 @@ Open a console and execute
 > **cd C:\Fuentes\01Desarrollo\MICROFRONTEND-STS**
 
 Here clone `sts-libs`
-> **git clone {STS-LIBS-URL}** 
+> **git clone --single-branch --branch {branch-name} {sts-libs-url}**  
 
 Then enter to `domains` directory
 > **cd domains**
 
 Here clone `sts-core-access`
-> **git clone {STS-CORE-ACCESS-URL}**
+> **git clone --single-branch --branch {branch-name} {sts-core-access-url}**
 
 **2.** Now, open the `sts-core-access` project and we're going to clean it to only have the necessary.
 	
@@ -314,6 +318,10 @@ Now, the project is ready to contain the new domain.
 		|--+ tray.component.ts
 		|
 ```
+
+**IMPORTANT:heavy_exclamation_mark::heavy_exclamation_mark::heavy_exclamation_mark:**
+> The modules are in a previous project called "mortgage". Also it is in the Bitbucket.
+
 **6.**  In `src/app`, in `app-routing.module.ts` define the domain's routes. 
 ##### Example: "{ path:  'sts-core-tray', component:  TrayComponent}"
 ```
