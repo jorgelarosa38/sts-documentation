@@ -1,4 +1,6 @@
 ﻿
+
+
 # [![Angular](images/angular.png)](https://angular.io/) STS Micro FrontEnd
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
@@ -11,7 +13,7 @@ The porpouse of this topic is show you how to build your own MicroFrontend Web. 
 
 Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
 ##
-## 1. First steps to start in Angular
+## 01. First steps to start in Angular
 *Install the necesary softwares.*
 ##### Install NodeJS (v12.18.2): [![NodeJS](images/nodejs.png "NodeJS")](https://nodejs.org/download/release/v12.18.2/)
 ##### Install Visual Studio Code (v1.47.*): [![VSC](images/vsc.png "Visual Studio Code")](https://code.visualstudio.com/updates/v1_47)
@@ -20,7 +22,7 @@ Dillinger is currently extended with the following plugins. Instructions on how 
 *This command open the possibility to use the "ng" command to generate our Angular project.*
 
 ##
-## 2. Custom Libraries
+## 02. Custom Libraries
 
 To be more efficient and reduce development times we uses a number of bundles built by us to work properly:
 
@@ -29,70 +31,76 @@ To be more efficient and reduce development times we uses a number of bundles bu
 
 > Remember each library is a complement to be better in this project, if you find some bug, please report us.
 ##
-## 3. Project Structure
+## 03. Project Structure
 ```
 {domain-name}
 	|
-	\--	src
+	\-- src
 		|
-		\--	app
+		\-- app
 			|
-			\--	core
+			\-- core
 				|
-				\--	models
+				\-- models
 				|
-				\--	services
+				\-- services
 				|
 			|
-			\--	shared
+			\-- shared
 				|
-				\--	directives
+				\-- directives
 				|
 				\-- helpers
 				|
-				\--	layouts
+				\-- layouts
 				|
-				\--	pipes
+				\-- pipes
 				| 	
 			|
-			\--	views
+			\-- views
 				|
-				\--	empty
+				\-- empty
+					|
+					*-- empty.component.ts
+					|
 				|
-				\--	{module-a}
+				\-- {module-a}
 				|
 			|
-			*--	app-routing.module.ts
-			*--	app.component.ts
-			*--	app.component.spec.ts
-			*--	app.constants.ts
-			*--	app.module.ts
+			*-- app-routing.module.ts
+			*-- app.component.ts
+			*-- app.component.spec.ts
+			*-- app.constants.ts
+			*-- app.module.ts
 			|
 		|
-		\--	assets (resources)
+		\-- assets (resources)
 		|
-		\--	enviroments
+		\-- enviroments
 			|
-			*--	environment.ts
-			*--	environment.prod.ts
+			*-- environment.ts
+			*-- environment.local.ts
+			*-- environment.dev.ts
+			*-- environment.uat.ts
+			*-- environment.prod.ts
 			|
 		|
-		\--	scss (styles files)
+		\-- scss (styles files)
 		|
-		*--	index.html
+		*-- index.html
 		*-- main.ts
 		*-- polyfills.ts
 		*-- polyfills.prod.ts
 		|
 	|
-	*--	angular.json
-	*--	copy-libs.js
-	*--	package.json
-	*--	webpack.externals.js
+	*-- angular.json
+	*-- copy-libs.js
+	*-- package.json
+	*-- webpack.externals.js
 	|
 ``` 
 ##
-## 4. Custom environment
+## 04. Custom environment
 
 When we develop a angular application, we have fases or enviroments. First, the develop phase, then the test phase, the QA phase and for the last, production phase. Every phase have differents directories, configurations maybe, for that we could define a environment. 
 
@@ -101,18 +109,20 @@ For example: enviroment.local.ts
 ```
 export  const  environment = {
 	production: false,
-	STANDALONE: true
+	stand_alone: true
 };
 ```
 2. Configure your enviroment in `angular.json`
 In the section "configuration", we have to define the configuration of our new environment.
 
 3. Finally, to build our application with the custom environment, we have to use the tag *--configuration={environment-name}* in your build script.
-
-![custom_environment](first_steps/75.png)
+##### For example:
+```
+> "build": "ng build --configuration=local --output-hashing none --vendor-chunk false",
+```
 
 ##
-## 5. Guideline to develop
+## 05. Guideline to develop
 
 
 ####  Variables
@@ -240,7 +250,7 @@ If we try to change the value of **emp_code** after the object has been initiali
 		*--	applicant-info.component.spect.ts
 ```
 ##
-## 6. Develop a new Domain
+## 06. Develop a new Domain
 > Certainly, we have two kind of projects. A Main Web Project and his respectives domains (Microfrontend).
 
 Before you do the first step, create the route **C:\Fuentes\01Desarrollo\MICROFRONTEND-STS**
@@ -278,6 +288,21 @@ Now, the project is ready to contain the new domain.
 #### Is time to add the necessaries components for the new domain. 
 
 **4.** In `src/app/views`, create a new directory. **Example: tray**.
+```
+	|
+	\-- src
+		|
+		\-- app
+			|
+			\-- views
+				|
+				\-- empty
+				|
+				\-- tray
+				|
+```
+
+
 **5.** Inside that directory, add the components necessaries (.ts, .html, .scss).
 ```
 	|
@@ -287,6 +312,7 @@ Now, the project is ready to contain the new domain.
 		|--+ tray.component.scss
 		|--+ tray.component.spec.ts
 		|--+ tray.component.ts
+		|
 ```
 **6.**  In `src/app`, in `app-routing.module.ts` define the domain's routes. 
 ##### Example: "{ path:  'sts-core-tray', component:  TrayComponent}"
@@ -327,33 +353,124 @@ This commands generate the bundles of our libs, and we are going to use it in th
 ##### Transpile the domain project.
 > **npm run build**
 
-##### Run and see the disaster in :fire::fire::fire:INTERNET EXPLORER :fire::fire::fire:.
+##### Run and see the disaster in :boom::fire::boom::fire::boom:INTERNET EXPLORER:boom::fire::boom::fire::boom:
 > **npm run start**
 
 The result for the example
 
 ![Example](first_steps/202.png)
 
-
 ##
-## 7. Dispatch & Listener Events
 
-Every time we configure a new domain, is necessary to know if it is going to consume a backend services. If it is the case, is necessary to have the knowledge of the correct use to Dispatch & Listener Events.
+##  07.  Integrate domain and Main Web
+
+**MAIN-WEB-URL:**	...
+
+Once our domain project works correctly, is time to integrate with the main web.
+
+Before the integration, download the Main Web Project.
+
+Open a console and execute
+> **cd C:\Fuentes\01Desarrollo\MICROFRONTEND-STS**
+
+Here clone `web-sts-mo`
+> **git clone {MAIN-WEB-URL}** 
+
+Now, continues with the integration.
+
+**1.**	Inside the domain project, open the console and execute.
+#### Upload the project with the external package config.
+
+> **npm run build:externals**
+
+**2.** In the directory `dist`, enter to the domain directory and change the name of the `main.js`.
+##### For example: main.js  	=====>  sts-core-tray.js 
+
+**3.** Copy the javascript file and open the Main Web project. Paste it in `src/assets`.
+
+**4.** Transpile and run the Main Web.
+##### Install the libraries for the project .
+> **npm install**
+
+##### Transpile the domain project.
+> **npm run build:externals**
+
+##### Finally, run and see the disaster in :boom::fire::boom::fire::boom:INTERNET EXPLORER :boom::fire::boom::fire::boom:
+> **npm run start**
+
+**IMPORTANT:heavy_exclamation_mark::heavy_exclamation_mark::heavy_exclamation_mark:**
+>  *If you run the web in Chrome or Edge is probably to get an 'HTMLElement' error.*
+
+## 08. Dispatch & Listener Events
+
+:boom::boom::boom: **TBD** :boom::boom::boom:
+
+Every time we initialize a page, if a param value is not correct or another error ocurrs in the proccess, we have two errors page defined. To call an error we are going to create a `customEvent`, define in our library `stslibutils`, and it is going to be called by a `dispatchEvent` .  For that, our component would have a try/catch structure, and when an error happens go to the catch definition.
+
+```
+	catch (excepcion) {
+		window.dispatchEvent(this._utils.createCustomEvent("event-error", { "error":  404 }));
+		return  false;
+	}
+```
+
+Once the `dispatchEvent` is defined, create a method to listen it .
+```
+	listenerEventError(e){
+		if(e.detail_error === 404){
+			setTimeout(() => {
+				this.ShellService.navigate('/error-'+e.detail_error+'');
+			}, 0);
+		}
+	}
+```
+
 
 :boom::boom::boom: **TBD** :boom::boom::boom:
 ##
-## 8. Interceptors
+## 09. Custom error pages
 :boom::boom::boom: **TBD** :boom::boom::boom:
+
 ##
-## 9. Custom error pages
+## 10. Interceptors
+
+:x::x::x: NOTHING TO SEE :x::x::x:
+
 :boom::boom::boom: **TBD** :boom::boom::boom:
+
 ##
-## 10. Storage Provider
-### 10.1. How to set in localstorage
+
+## 11. Storage Provider: How to set in localstorage
+
+:boom::boom::boom: **TBD** :boom::boom::boom:
+
+If we need to save a variable in the localstorage, have to use the StorageService for that. Now, how to use it?
+
+First, define it in the component's constructor.
+
+![libs](first_steps/109.png)
+
+And now, our options for develop, the methods.
+
+###  a. set : save a value.
+
+![libs](first_steps/110.png)
+
+###  b. get: obtain a value.
+
+![libs](first_steps/111.png)
+
+###  c.setJson: save a JSON object.
+
+![libs](first_steps/112.png)
+
+###  d.getJson: obtain a JSON object.
+
+![libs](first_steps/113.png)
 
 :boom::boom::boom: **TBD** :boom::boom::boom:
 ##
-## 11. How to handle "memory leaks"
+## 12. How to handle "memory leaks"
 
 As our application grows in size and logic, the memory management takes importance and it becomes necessary. For that, we have to follow the next steps to avoid this problem.
 
@@ -373,7 +490,7 @@ As our application grows in size and logic, the memory management takes importan
 
 For more details visit: [How to create a memory leak in Angular.](https://medium.com/angular-in-depth/how-to-create-a-memory-leak-in-angular-4c583ad78b8b)
 ##
-## 12. Angular Documentation
+## 13. Angular Documentation
 
 To generate a correctly documentation, we use the tool **@COMPODOC**. This generate html files where you can find the summary of components, classes, modules and details of our project. 
 
