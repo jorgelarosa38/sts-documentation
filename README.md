@@ -1,6 +1,7 @@
 ﻿
 
 
+
 # [![Angular](images/angular.png)](https://angular.io/) STS Micro FrontEnd
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
@@ -409,11 +410,9 @@ Now, continues with the integration.
 **IMPORTANT:heavy_exclamation_mark::heavy_exclamation_mark::heavy_exclamation_mark:**
 >  *If you run the web in Chrome or Edge is probably to get an 'HTMLElement' error.*
 
-## 08. Dispatch & Listener Events
-
+## 08. Custom error pages
 :boom::boom::boom: **TBD** :boom::boom::boom:
-
-Every time we initialize a page, if a param value is not correct or another error ocurrs in the proccess, we have two errors page defined. To call an error we are going to create a `customEvent`, define in our library `stslibutils`, and it is going to be called by a `dispatchEvent` .  For that, our component would have a try/catch structure, and when an error happens go to the catch definition.
+Every time we initialize a page, all the values necessaries for this pages need to be correctly. If a param value is incorrect or another error ocurrs in the proccess, we have two errors page defined. To call an custom page error we are going to create a `customEvent`, define in our library `stslibutils`, and it is going to be called by a `dispatchEvent` .  For that, our component would have a try/catch structure, and when an error happens go to the catch definition.
 
 ```
 	catch (excepcion) {
@@ -421,8 +420,14 @@ Every time we initialize a page, if a param value is not correct or another erro
 		return  false;
 	}
 ```
+##
 
-Once the `dispatchEvent` is defined, create a method to listen it .
+## 09. Dispatch & Listener Events
+
+:boom::boom::boom: **TBD** :boom::boom::boom:
+
+At the same time, is important to know how to use `Dispatch & Listener Events`, no only for a error pages case. An interactive page use this methods and now lets see how to launch it.
+
 ```
 	listenerEventError(e){
 		if(e.detail_error === 404){
@@ -433,13 +438,9 @@ Once the `dispatchEvent` is defined, create a method to listen it .
 	}
 ```
 
-
 :boom::boom::boom: **TBD** :boom::boom::boom:
 ##
-## 09. Custom error pages
-:boom::boom::boom: **TBD** :boom::boom::boom:
 
-##
 ## 10. Interceptors
 
 :x::x::x: NOTHING TO SEE :x::x::x:
@@ -451,8 +452,7 @@ Once the `dispatchEvent` is defined, create a method to listen it .
 ## 11. Storage Provider: How to set in localstorage
 
 :boom::boom::boom: **TBD** :boom::boom::boom:
-
-If we need to save a variable in the localstorage, have to use the StorageService for that. Now, how to use it?
+Sometimes, we are going to need to save a variable in local memory, and use it in another page, all of this for a correct work of our page. So, if we need to save a variable in the localstorage, have to use the StorageService for that. But, how to use it?
 
 First, define it in the component's constructor.
 
