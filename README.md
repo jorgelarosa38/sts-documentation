@@ -2,6 +2,7 @@
 
 
 
+
 # [![Angular](images/angular.png)](https://angular.io/) STS Micro FrontEnd
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
@@ -33,6 +34,8 @@ To be more efficient and reduce development times we uses a number of bundles bu
 > Remember each library is a complement to be better in this project, if you find some bug, please report us.
 ##
 ## 03. Project Structure
+
+> **The project structure could change in the future**
 ```
 {domain-name}
 	|
@@ -49,13 +52,13 @@ To be more efficient and reduce development times we uses a number of bundles bu
 			|
 			\-- shared
 				|
-				\-- directives
+				\-- directives (*)
 				|
-				\-- helpers
+				\-- helpers (*)
 				|
-				\-- layouts
+				\-- layouts (*)
 				|
-				\-- pipes
+				\-- pipes (*)
 				| 	
 			|
 			\-- views
@@ -99,7 +102,9 @@ To be more efficient and reduce development times we uses a number of bundles bu
 	*-- package.json
 	*-- webpack.externals.js
 	|
-``` 
+```
+> References: 
+> ( * ) ⇒ Optional directory. 
 ##
 ## 04. Custom environment
 
@@ -411,7 +416,7 @@ Now, continues with the integration.
 >  *If you run the web in Chrome or Edge is probably to get an 'HTMLElement' error.*
 
 ## 08. Custom error pages
-:boom::boom::boom: **TBD** :boom::boom::boom:
+
 Every time we initialize a page, all the values necessaries for this pages need to be correctly. If a param value is incorrect or another error ocurrs in the proccess, we have two errors page defined. To call an custom page error we are going to create a `customEvent`, define in our library `stslibutils`, and it is going to be called by a `dispatchEvent` .  For that, our component would have a try/catch structure, and when an error happens go to the catch definition.
 
 ```
@@ -423,8 +428,6 @@ Every time we initialize a page, all the values necessaries for this pages need 
 ##
 
 ## 09. Dispatch & Listener Events
-
-:boom::boom::boom: **TBD** :boom::boom::boom:
 
 At the same time, is important to know how to use `Dispatch & Listener Events`, no only for a error pages case. An interactive page use this methods and now lets see how to launch it.
 
@@ -438,7 +441,6 @@ At the same time, is important to know how to use `Dispatch & Listener Events`, 
 	}
 ```
 
-:boom::boom::boom: **TBD** :boom::boom::boom:
 ##
 
 ## 10. Interceptors
@@ -451,32 +453,32 @@ At the same time, is important to know how to use `Dispatch & Listener Events`, 
 
 ## 11. Storage Provider: How to set in localstorage
 
-:boom::boom::boom: **TBD** :boom::boom::boom:
 Sometimes, we are going to need to save a variable in local memory, and use it in another page, all of this for a correct work of our page. So, if we need to save a variable in the localstorage, have to use the StorageService for that. But, how to use it?
 
 First, define it in the component's constructor.
-
-![libs](first_steps/109.png)
+```
+	constructor(private storageService: StorageService)
+```
 
 And now, our options for develop, the methods.
 
 ###  a. set : save a value.
-
-![libs](first_steps/110.png)
-
+```
+this.storageService.set("keyname", value);
+```
 ###  b. get: obtain a value.
-
-![libs](first_steps/111.png)
-
+```
+this.storageService.get("keyname");
+```
 ###  c.setJson: save a JSON object.
-
-![libs](first_steps/112.png)
-
+```
+this.storageService.setJson("keyname", json);
+```
 ###  d.getJson: obtain a JSON object.
+```
+this.storageService.getJson("keyname");
+```
 
-![libs](first_steps/113.png)
-
-:boom::boom::boom: **TBD** :boom::boom::boom:
 ##
 ## 12. How to handle "memory leaks"
 
